@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Grid Layouts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Common popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 9999;
+            width: 80%;
+            max-width: 1000px;
+        }
+        
+        /* Overlay to darken the background when popup is active */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+        }
+
+        /* Grid Layouts */
+        .grid-container {
+            display: grid;
+            gap: 10px;
+        }
+
+        /* 5 by 2 Grid */
+        #popup-5by2 .grid-container {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        /* 4 by 2 Grid */
+        #popup-4by2 .grid-container {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        /* 3 by 2 Grid */
+        #popup-3by2 .grid-container {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        /* 2 by 2 Grid with Vertical and Horizontal Images */
+        #popup-2by2 .grid-container {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+
+        #popup-2by2 .vertical-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #popup-2by2 .horizontal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Close Button */
+        .close-btn {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Overlay -->
+    <div id="popup-overlay" class="popup-overlay"></div>
+
+    <!-- 5 by 2 Grid Popup -->
+    <div id="popup-5by2" class="popup">
+        <button class="close-btn" onclick="closePopup('popup-5by2')">X</button>
+        <h3>5 by 2 Grid Popup</h3>
+        <div class="grid-container">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+            <div>Item 7</div>
+            <div>Item 8</div>
+            <div>Item 9</div>
+            <div>Item 10</div>
+            <div>Item 11</div>
+            <div>Item 12</div>
+        </div>
+    </div>
+
+    <!-- 4 by 2 Grid Popup -->
+    <div id="popup-4by2" class="popup">
+        <button class="close-btn" onclick="closePopup('popup-4by2')">X</button>
+        <h3>4 by 2 Grid Popup</h3>
+        <div class="grid-container">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+            <div>Item 7</div>
+            <div>Item 8</div>
+        </div>
+    </div>
+
+    <!-- 3 by 2 Grid Popup -->
+    <div id="popup-3by2" class="popup">
+        <button class="close-btn" onclick="closePopup('popup-3by2')">X</button>
+        <h3>3 by 2 Grid Popup</h3>
+        <div class="grid-container">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+        </div>
+    </div>
+
+    <!-- 2 by 2 Grid Popup with Vertical and Horizontal Image -->
+    <div id="popup-2by2" class="popup">
+        <button class="close-btn" onclick="closePopup('popup-2by2')">X</button>
+        <h3>2 by 2 Grid Popup with Vertical and Horizontal Images</h3>
+        <div class="grid-container">
+            <div>
+                <img src="assets/img/business-cards/canva-pfeIsBbuH7k.jpg" alt="Vertical Image" class="vertical-image">
+            </div>
+            <div>
+                <img src="assets/img/business-cards/canva-pfeIsBbuH7k.jpg" alt="Horizontal Image" class="horizontal-image">
+            </div>
+        </div>
+        <p>Some text related to the images above.</p>
+    </div>
+
+    <script>
+        // Open Popup
+        function openPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('popup-overlay').style.display = 'block';
+        }
+
+        // Close Popup
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+            document.getElementById('popup-overlay').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tooltip Example</title>
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-top: 100px;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 1200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <p><span class="tooltip">Copyright
+        <span class="tooltiptext">All content, features, and functionality on this website, including but not limited to text, graphics, logos, images, video, audio, and software, are the property of Brand Point and are protected by copyright laws and international intellectual property laws.
+
+You may not reproduce, distribute, modify, transmit, display, or perform any content from this website without the prior written consent of Brand Point. Unauthorized use of the materials on this website may violate copyright, trademark, and other laws.
+
+For permissions or inquiries, please contact us at <a href="email:the.brandpoint.team@gmail.com">the.brandpoint.team@gmail.com</a> /<a href="tel:+919381655363">+91 93816 55363</a>.</span>
+    </span></p>
+
+</body>
+</html>

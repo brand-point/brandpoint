@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Form</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 16px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="* Name" required autocomplete="name">
+            <input type="email" id="email" name="email" placeholder="* Email" required autocomplete="email">
+            <input type="tel" id="mobile" name="mobile" placeholder="* 10 Digit Mobile Number" pattern="[0-9]{10}" required autocomplete="mobile">
+            <textarea id="message" name="message" placeholder="Message / Query" rows="3"></textarea>
+            <label for="image">Upload Image (optional)</label>
+            <input type="file" id="image" name="image" accept="image/*">
+            <button type="submit">Submit</button>
+            <p id="error" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const name = form.name.value;
+            const email = form.email.value;
+            const mobile = form.mobile.value;
+            const message = form.message.value;
+            const image = form.image.files[0];
+
+            if (!name || !email || !mobile || !message) {
+                document.getElementById('error').textContent = "All fields except image are required!";
+                return;
+            }
+
+            document.getElementById('error').textContent = "";
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('mobile', mobile);
+            formData.append('message', message);
+
+            if (image) {
+                formData.append('file', image);
+            }
+
+            fetch('https://script.google.com/macros/s/AKfycbz13KcTyi86SJFGlexn_0NO-INzqr8tUVAEvDRy4NxE-QOwcIU2ewU5Ik2zUGc8kLeH/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Form submitted successfully!");
+                    form.reset();
+                } else {
+                    alert("Something went wrong, please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("There was an error submitting the form.");
+            });
+        });
+    </script>
+
+   <!--
+    
+
+
+Version 1 on Feb 16, 2025, 2:53 PM
+
+Deployment ID
+AKfycbz13KcTyi86SJFGlexn_0NO-INzqr8tUVAEvDRy4NxE-QOwcIU2ewU5Ik2zUGc8kLeH
+
+Web app
+URL
+https://script.google.com/macros/s/AKfycbz13KcTyi86SJFGlexn_0NO-INzqr8tUVAEvDRy4NxE-QOwcIU2ewU5Ik2zUGc8kLeH/exec
+
+Library
+URL
+https://script.google.com/macros/library/d/1-mI8DDk7bqRJ6OCtkJ8YZDovso7BCyjPQOb2fnh8Xvvwcopcy83Qb8kj/1
+
+-->
+
+</body>
+</html>

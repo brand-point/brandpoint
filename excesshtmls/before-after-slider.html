@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Point</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .before-after {
+            position: relative;
+            width: 100%;
+        }
+
+        .before {
+            display: block;
+            width: 100%;
+        }
+
+        .after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            clip-path: inset(0 50% 0 0); /* Initially reveal half */
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #000000;
+            cursor: ew-resize;
+            z-index: 10;
+            transform: translateX(-50%);
+        }
+
+        /* Slider handle styling */
+        .slider:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Before/After Image Slider</h1>
+    <div class="container">
+        <div class="before-after">
+            <img src="\assets\img\img_h_4.jpg" alt="Before" class="before">
+            <img src="\assets\img\img_h_8.jpg" alt="After" class="after">
+            <div class="slider"></div>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const afterImage = document.querySelector('.after');
+        let isDragging = false;
+
+        slider.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const rect = slider.parentNode.getBoundingClientRect();
+            let x = e.clientX - rect.left; // Get mouse position relative to container
+            x = Math.max(0, Math.min(x, rect.width)); // Constrain to container width
+            slider.style.left = `${x}px`;
+            afterImage.style.clipPath = `inset(0 ${rect.width - x}px 0 0)`; // Adjust after image
+        });
+    </script>
+
+</body>
+</html>

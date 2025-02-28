@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container-donation {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        header h1 {
+            color: #4CAF50;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            background-color: #e7f7e7;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+        .content p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .donation-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .donation-info img {
+            max-width: 230px;
+            border: 1px solid #4CAF50;
+            padding: 0px;
+            border-radius: 8px;
+        }
+        .donation-info div {
+            max-width: 300px;
+        }
+        .donation-info h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .donation-info p {
+            font-size: 16px;
+            color: #555;
+        }
+        .footer {
+            font-size: 16px;
+            color: #888;
+            margin-top: 20px;
+        }
+        .footer p {
+            text-align: center;
+        }
+
+        ul li a {text-decoration: none; color: #888888;}
+
+        @media screen and (max-width: 1199px) {
+          .donation-info {display: block;}
+          .donation-info div{max-width: 100%;}
+          .donation-info img{ text-align:center; }
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 80%;
+        }
+        .popup img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .popup h2 {
+            color: #4CAF50;
+        }
+        .popup button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #45a049;
+        }
+        .god-name {
+    font-weight: bold;
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #4CAF50;  /* Optional: Set the color for the god's name */
+}
+
+
+    #donation-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .donation-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .donation-info div {
+            width: 48%;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], select, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .donation-info {
+                flex-direction: column;
+            }
+
+            .donation-info div {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-donation">
+        <header>
+            <h1>Receive the divine blessing from your God.</h1>
+        </header>
+
+
+        <form id="donation-form">
+            <div class="donation-info">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="transaction-id">Transaction ID:</label>
+                    <input type="text" id="transaction-id" name="transaction-id" required>
+                </div>
+            </div>
+
+            <div class="donation-info">
+                <div>
+                    <label for="favorite-god">Favorite God:</label>
+                    <select id="favorite-god" name="favorite-god" required>
+                        <option value="">Select God</option>
+                        <option value="Shiva">Shiva</option>
+                        <option value="Vishnu">Vishnu</option>
+                        <option value="Ganesha">Ganesha</option>
+                        <option value="Lakshmi">Lakshmi</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="image-upload">Upload your payment screenshot for verification:</label>
+                    <input type="file" id="image-upload" name="image-upload" accept="image/*" required>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="content">
+            <p style="font-size:small;">*** Kindly complete the form to make your generous donation. The information provided will assist us in verifying your transaction, ensuring a smooth and efficient process. Thank you for your kind support!</p>
+            
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2 id="blessing-heading">Blessing</h2>
+            <img id="god-image" src="" alt="God Image">
+            <p id="blessing-message">Thank you for your donation! May the blessings of your favorite god be with you.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("donation-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const name = document.getElementById("name").value;
+            const transactionId = document.getElementById("transaction-id").value;
+            const favoriteGod = document.getElementById("favorite-god").value;
+            const imageUpload = document.getElementById("image-upload").files[0];
+
+            // Validate the form
+            if (name && transactionId && favoriteGod && imageUpload) {
+                // Show popup with God image gif and blessing message
+                const godImageGif = `../assets/img/more/god/${favoriteGod.toLowerCase()}.gif`; // Example: shiva.gif
+                document.getElementById("god-image").src = godImageGif;
+
+                // Display the popup
+                document.getElementById("popup").style.display = "flex";
+
+                const blessingMessage = `Thank you for your donation! May the blessings of <span class="god-name">${favoriteGod}</span> be with you.`;
+        document.getElementById("blessing-message").innerHTML = blessingMessage;
+
+            const blessingHeading = `Hi <span class="god-name">${name}</span>,`;
+        document.getElementById("blessing-heading").innerHTML = blessingHeading;
+
+        // Display the popup
+        document.getElementById("popup").style.display = "flex";
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        } 
+
+       
+
+    </script>
+
+</body>
+</html>

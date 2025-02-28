@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Brand Point</title>
+  <meta name="description" content="where we transform your vision into a powerful brand identity. Specializing in a wide range of branding solutions, we cater to businesses looking to enhance their presence through customized products and services.">
+  <meta name="keywords" content="Customizable office essentials, personalized books, custom diaries, custom calendars, custom letterheads, custom envelopes, custom danglers, custom brochures, half-cut brochures, full-cut brochures, corporate stationery, business stationery, custom office products, promotional office items, branded office supplies, acrylic trophies, acrylic, crystal, fiber, trophies, advertising danglers, affordable custom gift box printing, best printing services for corporate stationery, books, diaries, calendars, letterheads, envelopes, branded letterheads, branded rigid boxes, branding and promotional products, brochure design services, brochures, business card printing services, business cards visiting cards, corporate brochures printing, corporate engraving services, corporate gift boxes, corporate gifts and giveaways, corporate stationery, creative web design solutions, crystal trophies, custom brochures, custom business cards, custom danglers, custom diaries, custom engraving services, custom gift boxes, custom half-cut stickers, custom id cards, custom packaging boxes, custom printed envelopes, custom printing services, custom promotional materials, custom rigid packaging, custom rubber stamps, custom shrink wrap packaging, custom shrink wrapping for product packaging, custom stickers for business marketing, custom stickers printing, custom trophies, custom web design, custom website development, customized business stationery, customized gift wrapping, customized rigid boxes, dangler design services, danglers, die-cut stickers, e-commerce web development, employee id cards, engraved trophies and awards, engraving rubber prints, engraving for gifts, fiber optic trophies, full-cut sticker printing, full-stack web development, gifts gift boxes, half-cut full-cut stickers, high-end packaging solutions, high-end rigid packaging for luxury brands, high-quality printing services, id cards stickers, luxury rigid boxes, name tag stickers, packaging shrink wrap, personalized awards and trophies, personalized business cards, personalized calendars, personalized engraving, personalized gift boxes, personalized gift packaging, personalized gifts, personalized printing solutions, personalized stickers, personalized trophies for corporate awards, personalized vinyl stickers, premium business cards, printed books and diaries, printed business cards, printed danglers for marketing, printed id cards, printed marketing brochures, printing for businesses, product shrink wrapping, products, professional brochure printing, professional shrink wrapping, professional web design and development services, professional web design services, professional web development, promotional danglers, responsive web design, rubber stamp printing, services, shrink wrapping, shrink wrapping services, stickers for business promotion, unique gift packaging, visiting cards design, web design, web development, web development services, website design for businesses, where to buy custom business cards online.">
+
+  <!-- Favicons -->
+  <link href="../assets/img/brandpoint-favicon-circle-bg.png" rel="icon">
+  <link href="../assets/img/brandpoint-favicon-circle-bg.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+  <style>
+       body {
+            font-family: Roboto, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container-donation {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        header h1 {
+            color: #4CAF50;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            background-color: #e7f7e7;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+        .content p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .donation-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .donation-info img {
+            max-width: 230px;
+            border: 1px solid #4CAF50;
+            padding: 0px;
+            border-radius: 8px;
+        }
+        
+        .donation-info h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .donation-info p {
+            font-size: 16px;
+            color: #555;
+        }
+        .footer {
+            font-size: 16px;
+            color: #888;
+            margin-top: 20px;
+        }
+        .footer p {
+            text-align: center;
+        }
+
+        ul li a {text-decoration: none; color: #888888;}
+
+        @media screen and (max-width: 1199px) {
+          .donation-info {display: block;}
+          .donation-info div{max-width: 100%;}
+          .donation-info img{ text-align:center; }
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+           /* top: 0;
+            left: 0; */
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 80%;
+        }
+        .popup img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .popup h2 {
+            color: #4CAF50;
+        }
+        .popup button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #45a049;
+        }
+        .god-name {
+    font-weight: bold;
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #4CAF50;  /* Optional: Set the color for the god's name */
+}
+
+
+    #donation-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .donation-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .donation-info div {
+           
+            margin: 0 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], select, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .donation-info {
+                flex-direction: column;
+            }
+
+            .donation-info div {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!--<img src="assets/img/brandpoint-logo-icon-circle.png" alt=""> -->
+        <img src="../assets/img/brand-point-logo-w-title.png" alt="brand-point-logo">      
+        <!--<h1 class="sitename">Brand Point</h1> -->
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html" class="active">Home</a></li>
+          <li><a href="../index.html#about-us">About</a></li>
+          <li class="dropdown"><a href="../index.html#services"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="../products/id-cards.html">ID Cards & Stickers</a></li>
+              <li><a href="../products/business-cards.html">Business & Visiting Cards</a></li>
+              <li><a href="../products/rigid-boxes.html">Customized Rigid & Gift Boxes</a></li>
+              <li class="dropdown"><a href="../products/office-essentials.html"><span>Office Essentials</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="../products/office-essentials.html#books-diaries">Books & Diaries</a></li>
+                  <li><a href="../products/office-essentials.html#calendars">Calendars</a></li>
+                  <li><a href="../products/office-essentials.html#letterheads">Letterheads</a></li>
+                  <li><a href="../products/office-essentials.html#envelopes">Envelopes</a></li>
+                  <li><a href="products/office-essentials.html#brochures-danglers">Brochures & Danglers</a></li>
+                </ul>
+              </li>
+              <li><a href="../products/trophies.html">Acrylic, Crystal & Fiber Trophies</a></li>
+              <li><a href="../products/gift-items.html">Gift Items</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="../index.html#our-services"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="../services/engraving.html">Engraving</a></li>
+              <li><a href="../services/rubber-prints.html">Rubber Prints</a></li>
+              <li><a href="../services/shrink-wrapping.html">Shrink Wrapping</a></li>
+              <li><a href="../services/web-design-development.html">Web Design, Development<br>& Hosting</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" id="showcase"><a href="../showcase/portfolio.html"><span>Showcase</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="../showcase/portfolio.html">Portfolio</a></li>
+              <li><a href="../showcase/portfolio.html#testimonials">Testimonials</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" id="more"><a href="../more/tax-calculator.html#tax-calculator"><span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="../more/tax-calculator.html#tax-calculator">Tax Calculator</a></li>
+              <li><a href="../more/gratuity-calculator.html#gratuity-calculator">Gratuity Calculator</a></li>
+              <li><a href="../more/hra-calculator.html#hra-calculator">HRA Calculator</a></li>
+              <li id="donation"><a href="../more/donation.html">₹1 Donation</a></li>
+              <li id="payments"><a href="../more/payments.html">Payments / Fund Transfer</a></li>
+            </ul>
+          </li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container-donation">
+        <header>
+            <h1>Help the Needy: Donate ₹1 Today</h1>
+        </header>
+
+        <section class="content">
+            <p>Every day, many people are struggling to survive. Homeless individuals, the elderly, and those facing poverty are in desperate need of support. Your generous donation can provide food, shelter, and basic care to those who need it most. By contributing, you're making a real difference in someone's life.</p>
+        </section>
+
+        <section class="donation-info">
+            <div>
+                <h3>Make a Difference Today</h3>
+                <p>Your donation will help us provide food, shelter, and healthcare for the homeless, the elderly, and those in need. Every contribution counts!</p>
+                <p><strong>Ways to Donate:</strong></p>
+                <ul>
+                    <li>Via bank transfer</li>
+                    <li>Through our online payment portal</li>
+                    <li>By scanning the QR code.</li>
+                </ul>
+
+                <h3>Account Transfer Details</h3>
+        <p>If you wish to transfer funds via bank transfer, please use the following details:</p>
+        <ul style="list-style:none; padding-left: 0px;">
+            <li><strong>Name : </strong> Balasubrahmanyam Gummidi</li>
+            <li><strong>Account Number : </strong> 112001509875</li>
+            <li><strong>IFSC Code : </strong> ICIC0001120</li>
+            <li><strong>Branch : </strong> Kavuri Hills</li>
+            <li><strong>Bank : </strong> ICICI</li>
+            <li><strong>Mobile : </strong><a href="tel:+919381655363"> +91 93816 55363</a></li><br>
+            <li><strong>Email : </strong><a href="mailto:the.brandpoint.team@gmail.com"> the.brandpoint.team@gmail.com</a></li>
+
+        </ul>
+
+            </div>
+
+            <div>
+                <img src="../assets/img/more/phonepe-scanner.png" alt="QR Code to Donate">
+                
+            </div>
+             <div>
+                
+                <img src="../assets/img/more/googlepay-scanner.png" alt="QR Code to Donate">
+            </div>
+            <div>
+                
+                <img src="../assets/img/more/paytm-scanner.png" alt="QR Code to Donate">
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Thank you for your support. Together, we can make the world a better place for those in need.</p>
+        </footer>
+    </div>
+
+
+    <div class="container-donation">
+        <header>
+            <h1>Receive the divine blessing from your God.</h1>
+        </header>
+
+
+        <form id="donation-form">
+            <div class="donation-info">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="transaction-id">Transaction ID:</label>
+                    <input type="text" id="transaction-id" name="transaction-id" required>
+                </div>
+           
+                <div>
+                    <label for="favorite-god">Favorite God:</label>
+                    <select id="favorite-god" name="favorite-god" required>
+                        <option value="">Select God</option>
+                        <option value="Shiva">Shiva</option>
+                        <option value="Vishnu">Vishnu</option>
+                        <option value="Ganesha">Ganesha</option>
+                        <option value="Lakshmi">Lakshmi</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="image-upload">Upload your payment screenshot for verification:</label>
+                    <input type="file" id="image-upload" name="image-upload" accept="image/*" required>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="content">
+            <p style="font-size:small;">*** Kindly complete the form to make your generous donation. The information provided will assist us in verifying your transaction, ensuring a smooth and efficient process. Thank you for your kind support!</p>
+            
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h4 id="blessing-heading">Blessing</h4>
+            <img id="god-image" src="" alt="God Image">
+            <p id="blessing-message">Thank you for your donation! May the blessings of your favorite god be with you.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+ 
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5 col-lg-3 pl-lg-5">
+          <div class="widget">
+            <h3 class="widget-heading">Navigate to Products</h3>
+            <ul class="list-unstyled float-start me-5">
+              <li><a href="../products/rigid-boxes.html">Gift & Rigid Boxes</a></li>
+              <li><a href="../products/trophies.html">Acrylic, Crystal Trophies</a></li>
+              <li><a href="../products/gift-items.html">Gift Items</a></li>
+              <li><a href="../products/office-essentials.html">Office Essentials</a></li>
+              <li><a href="../products/id-cards.html">ID Cards</a></li>
+              <li><a href="../products/business-cards.html">Business Cards</a></li>
+            </ul>
+            <!-- <ul class="list-unstyled float-start">
+              <li><a href="#">Overview</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pl-lg-5">
+          <div class="widget">
+            <h3 class="widget-heading">Navigate to Services</h3>
+            <ul class="list-unstyled float-start me-5">
+              <li><a href="../services/engraving.html">Engraving</a></li>
+              <li><a href="../services/rubber-prints.html">Rubber Printing</a></li>
+              <li><a href="../services/shrink-wrapping.html">Shrink Wrapping</a></li>
+              <li><a href="../services/web-design-development.html">Web Design, Development & Hosting</a></li>
+            </ul>
+            
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+          <div class="widget">
+            <h3 class="widget-heading">Navigate to Showcase</h3>
+            <ul class="list-unstyled float-start me-5">
+              <li><a href="../showcase/portfolio.html">Portfolio</a></li>
+              <li><a href="../showcase/portfolio.html#testimonials">Testimonials</a></li>
+              <li><a href="../more/tax-calculator.html">Tax Calculator</a></li>
+              <li><a href="../more/gratuity-calculator.html">Gratuity Calculator</a></li>
+              <li><a href="../more/hra-calculator.html">HRA Calculator</a></li>
+              <li><a href="../more/payments.html">Payments / Fund Transfer </a></li>
+            </ul>
+          </div>
+        </div>
+        
+        
+        
+        <!--
+        <div class="col-md-6 col-lg-3 pl-lg-5">
+          <div class="widget">
+            <h3 class="widget-heading">Recent Posts</h3>
+            <ul class="list-unstyled footer-blog-entry">
+              <li>
+                <span class="d-block date">May 3, 2020</span>
+                <a href="#">There live the Blind Texts</a>
+              </li>
+              <li>
+                <span class="d-block date">May 3, 2020</span>
+                <a href="#">Separated they live in Bookmarksgrove right</a>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+        <div class="col-md-6 col-lg-3 pl-lg-5">
+          <div class="widget">
+            <div class="mb-4">
+            <img src="../assets/img/brand-point-qr-code.png" alt="brand-point-qr-code" width="130px"><div style="text-align: center;width: 130px;">
+            <small style="font-size: x-small; text-align: center;">Scan to Get Contact Details</small></div>
+            </div>
+            <h3 class="widget-heading">Connect</h3>
+            <ul class="list-unstyled social-icons light mb-3">
+              <li>
+                <a href="../assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank"><span class="bi bi-facebook"></span></a>
+              </li>
+              <li>
+                <a href="../assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank"><span class="bi bi-twitter-x"></span></a>
+              </li>
+              <li>
+                <a href="../assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank"><span class="bi bi-linkedin"></span></a>
+              </li>
+              <li>
+                <a href="../assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank"><span class="bi bi-google"></span></a>
+              </li>
+              <li>
+                <a href="../assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank"><span class="bi bi-play-circle"></span></a>
+              </li>
+              
+              <!--<li>
+                <a href="index.html"><span class="bi bi-google-play"></span></a>
+              </li>  -->
+            </ul>
+            <ul class="list-unstyled float-start me-5">
+            <li><a href="../assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank" class="btn-learn-more">Download Brochure</a></li>
+          </ul>
+            
+          </div>
+          <!--
+          <div class="widget">
+            <div class="footer-subscribe">
+              <h3 class="widget-heading">Subscribe</h3>
+              <form action="forms/newsletter.php" method="post" class="php-email-form">
+                <div class="mb-2">
+                  <input type="text" class="form-control" name="email" placeholder="Enter your email">
+
+                  <button type="submit" class="btn btn-link">
+                    <span class="bi bi-arrow-right"></span>
+                  </button>
+                </div>
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">
+                  Your subscription request has been sent. Thank you!
+                </div>
+              </form>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="copyright d-flex flex-column flex-md-row align-items-center justify-content-md-between">
+        <p>© <span>Copyright <script type="text/javascript">
+  document.write(new Date().getFullYear());
+</script> </span> <a href="https://brandpoint.in/"><strong class="px-1 sitename">Brand Point</strong></a> <span>All Rights Reserved</span></p>
+
+<p class="legal"><a href="../legal/privacy-policy.html">Privacy Policy</a> | <a href="../legal/terms-and-conditions.html">Terms & Condition</a> | <a href="../legal/refund-policy.html">Refund Policy</a></p>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Designed by <a href="https://brandpoint.in/"><strong>Brand Point</strong></a><!-- Distributed By <a href="https://brandpoint.in"><strong>Brand Point</strong></a> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+  <script>
+        const slider = document.querySelector('.slider');
+        const afterImage = document.querySelector('.after');
+        let isDragging = false;
+
+        slider.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const rect = slider.parentNode.getBoundingClientRect();
+            let x = e.clientX - rect.left; // Get mouse position relative to container
+            x = Math.max(0, Math.min(x, rect.width)); // Constrain to container width
+            slider.style.left = `${x}px`;
+            afterImage.style.clipPath = `inset(0 ${rect.width - x}px 0 0)`; // Adjust after image
+        });
+    </script>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/breadcrumbs.js"></script>
+
+  <script>
+        document.getElementById("donation-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Collect form data
+            const name = document.getElementById("name").value;
+            const transactionId = document.getElementById("transaction-id").value;
+            const favoriteGod = document.getElementById("favorite-god").value;
+            const imageUpload = document.getElementById("image-upload").files[0];
+
+            // Validate the form
+            if (name && transactionId && favoriteGod && imageUpload) {
+                // Show popup with God image gif and blessing message
+                const godImageGif = `../assets/img/more/god/${favoriteGod.toLowerCase()}.gif`; // Example: shiva.gif
+                document.getElementById("god-image").src = godImageGif;
+
+                // Display the popup
+                document.getElementById("popup").style.display = "flex";
+
+                const blessingMessage = `Thank you for your donation! May the blessings of <span class="god-name">${favoriteGod}</span> be with you.`;
+        document.getElementById("blessing-message").innerHTML = blessingMessage;
+
+            const blessingHeading = `Hi <span class="god-name">${name}</span>,`;
+        document.getElementById("blessing-heading").innerHTML = blessingHeading;
+
+        // Display the popup
+        document.getElementById("popup").style.display = "flex";
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        } 
+
+       
+
+    </script>
+
+  
+
+</body>
+
+</html>

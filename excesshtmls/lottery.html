@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            margin: 20px 0;
+            color: #555;
+        }
+        #lottery-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .lottery-number {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lottery Number Generator</h1>
+    <button onclick="generateNumbers()">Generate Lottery Numbers</button>
+    <div id="lottery-container">
+        <!-- Lottery numbers will appear here -->
+    </div>
+
+    <script>
+        function generateNumbers() {
+            const container = document.getElementById('lottery-container');
+            container.innerHTML = ''; // Clear existing numbers
+
+            const totalNumbers = 100; // Change to 1,000,000 if needed
+            const lotteryNumbers = [];
+
+            for (let i = 1; i <= totalNumbers; i++) {
+                // Format numbers with leading zeros
+                const formattedNumber = i.toString().padStart(7, '0');
+                lotteryNumbers.push(formattedNumber);
+            }
+
+            // Shuffle the numbers for randomness
+            lotteryNumbers.sort(() => Math.random() - 0.5);
+
+            // Display the numbers
+            lotteryNumbers.forEach((number) => {
+                const div = document.createElement('div');
+                div.className = 'lottery-number';
+                div.textContent = number;
+                container.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
