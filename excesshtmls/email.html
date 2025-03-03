@@ -17,28 +17,38 @@
             padding: 20px;
             margin: 0 auto;
             max-width: 600px;
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
         .header {
             text-align: center;
             padding-bottom: 20px;
             color: #333;
+
+        }
+        .header img {
+            width: 250px;
+            height: auto;
+            padding-bottom:20px;
+            padding-top:20px;
         }
         .product-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            gap: 10px;
         }
         .product-item {
             width: 48%;
             margin-bottom: 20px;
             background-color: #f8f8f8;
-            padding: 15px;
+            
             border-radius: 5px;
             text-align: center;
         }
         .product-item img {
             width: 100%;
-            height: auto;
+            height: 200px;
             border-radius: 5px;
         }
         .product-item h3 {
@@ -59,6 +69,7 @@
             border-radius: 5px;
             display: inline-block;
             margin-top: 20px;
+            width: 40%;
         }
         .cta-button:hover {
             background-color: #218838;
@@ -73,104 +84,128 @@
             color: #28a745;
             text-decoration: none;
         }
+        .contact-details {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .contact-details p {
+            color: #333;
+            font-size: 14px;
+        }
+        .qr-code {
+            margin-top: 20px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+        a {text-decoration: none;}
     </style>
 </head>
 <body>
     <div class="email-container">
         <!-- Header Section -->
         <div class="header">
+            <img src="https://brandpoint.in/assets/img/brand-point-tagline-1000x250.png" alt="Your Company Logo"> <!-- Replace with your logo -->
             <h1>Your Brand's Printing & Custom Products</h1>
             <p>Enhance your brand with high-quality products and printing services</p>
         </div>
 
-        <!-- Product Grid -->
+        <!-- Product Grid (2 Columns) -->
         <div class="product-grid">
             <!-- Product 1: ID Cards & Stickers Printing -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="ID Cards & Stickers Printing">
+                <img src="https://brandpoint.in/assets/img/email/slider-id-card.jpg" alt="ID Cards & Stickers Printing">
                 <h3>ID Cards & Stickers Printing</h3>
                 <p>Custom printed ID cards and stickers that suit your business needs.</p>
             </div>
 
             <!-- Product 2: Business Cards -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Business Cards">
+                <img src="https://brandpoint.in/assets/img/email/standard-business-cards-classic-design.png" alt="Business Cards">
                 <h3>Business Cards / Visiting Cards</h3>
-                <p>Design and print professional business cards to leave a lasting impression.</p>
+                <p>Print professional business cards to leave a lasting impression.</p>
             </div>
 
             <!-- Product 3: Gift & Rigid Boxes -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Gift & Rigid Boxes">
+                <img src="https://brandpoint.in/assets/img/email/slider-rigid-box.jpg" alt="Gift & Rigid Boxes">
                 <h3>Gift & Rigid Boxes</h3>
                 <p>Custom gift boxes and rigid packaging to elevate your products.</p>
             </div>
 
             <!-- Product 4: Brochures & Danglers -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Brochures & Danglers">
+                <img src="https://brandpoint.in/assets/img/email/slider-brochures-danglers.png" alt="Brochures & Danglers">
                 <h3>Brochures & Danglers</h3>
                 <p>Eye-catching brochures and danglers to promote your business.</p>
             </div>
 
             <!-- Product 5: Office Essentials -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Office Essentials">
+                <img src="https://brandpoint.in/assets/img/email/slider-office-essentials.jpg" alt="Office Essentials">
                 <h3>Office Essentials</h3>
                 <p>Custom-made letterheads, envelopes, and other office stationery.</p>
             </div>
 
             <!-- Product 6: Trophies & Engraving -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Trophies & Engraving">
+                <img src="https://brandpoint.in/assets/img/email/slider-trophies.png" alt="Trophies & Engraving">
                 <h3>Acrylic, Crystal, Fiber Trophies</h3>
                 <p>Personalized trophies and awards for all your recognition needs.</p>
             </div>
 
             <!-- Product 7: Engraving on Pens, Mugs, Keychains -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Engraving on Pens, Mugs, Keychains">
-                <h3>Engraving on Pens, Mugs, & Keychains</h3>
+                <img src="https://brandpoint.in/assets/img/email/slider-engraving.jpg" alt="Engraving on Pens, Mugs, Keychains">
+                <h3>Engraving on Water bottles, Pens, Mugs, & Keychains</h3>
                 <p>Personalized gifts with engraved pens, mugs, and keychains.</p>
             </div>
-
-            <!-- Product 8: Digital & Offset Printing -->
+            <!-- Product 11: Brochures, Envelopes, Letterheads, Diaries -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Digital & Offset Printing">
-                <h3>Digital & Offset Printing</h3>
-                <p>High-quality printing services for your marketing materials.</p>
+                <img src="https://brandpoint.in/assets/img/email/dairy-calendar-envelops.png" alt="Brochures, Envelopes, Letterheads">
+                <h3>Dairies, Envelopes, Letterheads & More</h3>
+                <p>Complete design and printing services for your essential business documents.</p>
             </div>
-
             <!-- Product 9: Rubber Prints on T-Shirts -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Rubber Prints on T-Shirts">
+                <img src="https://brandpoint.in/assets/img/email/slider-rubber-print.jpg" alt="Rubber Prints on T-Shirts">
                 <h3>Rubber Prints on T-Shirts</h3>
                 <p>Custom T-shirt printing for promotional and personal use.</p>
             </div>
 
             <!-- Product 10: Web Design, Development & Hosting -->
             <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Web Design, Development & Hosting">
+                <img src="https://brandpoint.in/assets/img/email/slider-developer.png" alt="Web Design, Development & Hosting">
                 <h3>Web Design, Development & Hosting</h3>
                 <p>Build a powerful online presence with our full-service web solutions.</p>
             </div>
 
-            <!-- Product 11: Brochures, Envelopes, Letterheads, Diaries -->
-            <div class="product-item">
-                <img src="https://via.placeholder.com/150" alt="Brochures, Envelopes, Letterheads">
-                <h3>Brochures, Envelopes, Letterheads & More</h3>
-                <p>Complete design and printing services for your essential business documents.</p>
-            </div>
+            
         </div>
 
         <!-- Call to Action -->
-        <div class="cta">
-            <a href="mailto:your@email.com" class="cta-button">Contact Us for a Quote</a>
+        <div class="cta" style="text-align:center;">
+            
+            <a href="https://brandpoint.in/" target="_blank" class="cta-button">Visit our website</a>
+            <a href="https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank" class="cta-button">Brochure</a>
+        </div>
+
+        <!-- Contact Details & QR Code -->
+        <div class="contact-details">
+            <p><strong>Contact Us:</strong></p>
+            
+            <div class="qr-code">
+                <img src="https://brandpoint.in/assets/img/brand-point-qr-code.png" alt="QR Code" width="180"> <!-- Replace with your actual QR code URL -->
+            </div>
         </div>
 
         <!-- Footer Section -->
         <div class="footer">
-            <p>If you have any questions or need more information, feel free to <a href="mailto:your@email.com">contact us</a>.</p>
+            <p><a href="mailto:thebrandpointteam@gmail.com">thebrandpointteam@gmail.com</a> | <a href="tel:+919381655363">+91 93816 55363</a> | <a href="https://brandpoint.in/" target="_blank">https://brandpoint.in</a></p>
+            <p>If you have any questions or need more information, feel free to <a href="mailto:thebrandpointteam@gmail.com">contact us</a>.</p>
             <p>&copy; 2025 Brand Point. All rights reserved.</p>
         </div>
     </div>
