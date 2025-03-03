@@ -1,0 +1,48 @@
+schema <script type="application/ld+json"></script>
+1. Brand
+1. Organization Schema
+2. website schema
+	
+4. services schema
+	Engraving Services
+	Digital & Offset Printing Services
+	Rubber Prints Services
+	Web Design, Development & Hosting Services
+	Customizable ID Cards Services
+	Customizable Stickers Services
+	Customizable Business Cards Services
+	Customizable Visiting Cards Services
+	Customizable Gift boxes Services
+	Customizable Rigid Boxes Services
+	Office Essentials Services
+	Customizable Acrylic Trophies Services
+	Customizable Crystal Trophies Services
+	Customizable Fiber Trophies Services
+	Customizable Books Services
+	Customizable Diaries Services
+	Customizable Calendars Services
+	Customizable Letterheads Services
+	Customizable Envelopes Printing Services
+	Customizable Danglers Printing Services
+	Customizable Brochures Printing Services
+
+
+3. products schema
+	
+	ID Cards Holders
+	Yoyos
+	Neck Tags
+	Customizable Gift boxes making
+	Customizable Rigid Boxes making
+	Customizable Books making
+	Customizable Diaries making
+	Customizable Calendars making
+	Customizable Letterheads making
+	Customizable Envelopes making
+	Customizable Danglers making
+	Customizable Brochures making
+
+
+	
+		
+
