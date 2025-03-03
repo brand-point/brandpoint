@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://brandpoint.in/</loc>
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -24,247 +10,138 @@
 <url>
   <loc>https://brandpoint.in/</loc>
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/index.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/products/id-cards.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/products/business-cards.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/products/rigid-boxes.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/products/office-essentials.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/products/trophies.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/products/gift-items.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/services/engraving.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/services/rubber-prints.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/services/shrink-wrapping.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/services/web-design-development.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/showcase/portfolio.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/more/tax-calculator.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/more/gratuity-calculator.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/more/hra-calculator.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/more/donation.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/more/payments.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/blog.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/contact.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/legal/privacy-policy.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/legal/terms-and-conditions.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/legal/refund-policy.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/blog/a-path-to-elevated-branding-rigid-gift-boxes.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/blog/perfect-gift-for-your-branding.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://brandpoint.in/blog/building-a-strong-brand-identity.html</loc>
-<<<<<<< HEAD
-  <lastmod>2025-03-01T03:16:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
-=======
   <lastmod>2025-03-03T10:00:37+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
 
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
 </urlset>
