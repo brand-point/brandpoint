@@ -691,6 +691,16 @@ h6 {
     transition-delay: 0 !important;
   }
 
+  .our-products-scroll{
+    display: -webkit-inline-box;
+    overflow: scroll hidden;
+    margin-bottom: 30px;
+  }
+  .popup{
+    width: 100%;
+    height: auto;
+  }
+
 }
 
 /*--------------------------------------------------------------
@@ -1445,6 +1455,7 @@ section,
     font-size: 14px;
     margin: 0 0 10px 0;
   }
+
 }
 
 .portfolio .portfolio-item {
@@ -2700,3 +2711,7 @@ section,
   display: none;
 }
 /*Hide Donation linke */
+.magin-t-b-20{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
