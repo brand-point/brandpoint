@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-User-agent: *
-Allow: /
-Sitemap: https://yourwebsite.github.io/sitemap.xml
-=======
 User-agent: *
 Allow: /
 Sitemap: https://brandpoint.in/sitemap.xml
->>>>>>> 98155f8ad3a16f9e3837e21fa0b5570427904417
