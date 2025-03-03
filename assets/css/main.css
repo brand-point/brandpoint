@@ -407,7 +407,7 @@ h6 {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
-  .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before{ vertical-align: -1em !important;}
+  .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before{ vertical-align: 0em !important;}
   .mobile-nav-active {
     overflow: hidden;
   }
