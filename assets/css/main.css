@@ -300,6 +300,7 @@ h6 {
 
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
+  .about-2 .content{padding:30px}
   .mobile-nav-toggle {
     color: var(--nav-color);
     font-size: 28px;
@@ -682,6 +683,7 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
+#portfolio{ padding-top:130px; }
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -690,7 +692,11 @@ h6 {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
-
+  .portfolio-scroll{
+    display: flex;
+    overflow: scroll hidden;
+  }
+  ul.portfolio-scroll li{}
   .our-products-scroll{
     display: -webkit-inline-box;
     overflow: scroll hidden;
@@ -1454,6 +1460,7 @@ section,
   .portfolio .portfolio-filters li {
     font-size: 14px;
     margin: 0 0 10px 0;
+    min-width: fit-content;
   }
 
 }
