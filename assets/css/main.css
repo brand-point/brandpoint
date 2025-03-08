@@ -1563,6 +1563,8 @@ section,
   .portfolio-details .swiper-button-next {
     display: none;
   }
+  .container-contact-us{ width:360px; }
+  .contact .info{ padding:20px; }
 }
 
 .portfolio-details .swiper-pagination {

@@ -28,13 +28,10 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Active
-  * Template URL: https://bootstrapmade.com/active-bootstrap-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  
+<link rel="stylesheet" href="https://storage.googleapis.com/briocoin/sweetalert.css">
+<script  src="https://storage.googleapis.com/briocoin/jquery.js"></script>
+<script  src="https://storage.googleapis.com/briocoin/sweetalert.min.js"></script>
 
   <style>
     .bg-image{
@@ -49,9 +46,9 @@ background-size: cover; /* Ensures the image covers the entire element */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 360;
+            width: 450px;
             margin: 0 auto;
-            opacity: 0.9;
+            opacity: 1;
 
         }
         h1 {
@@ -240,6 +237,31 @@ background-size: cover; /* Ensures the image covers the entire element */
             </div> -->
             <div class="container-contact-us">
         <h1>Contact Us</h1>
+
+        <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="entry.102685008" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="entry.916366651" required><br><br>
+        
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="entry.515368400" required><br><br>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="entry.1864843199"></textarea><br><br>
+        
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="entry.682503364" accept="image/*"><br><br>
+        
+        <input type="hidden" name="fvv" value="1">
+        <input type="hidden" name="fbzx" value="5795735406676352104">
+        
+        <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
+    </form>
+
+
+        <!--
         <form id="contactForm">
             <input type="text" id="name" name="name" placeholder="* Name" required autocomplete="name">
             <input type="email" id="email" name="email" placeholder="* Email" required autocomplete="email">
@@ -247,33 +269,13 @@ background-size: cover; /* Ensures the image covers the entire element */
             <textarea id="message" name="message" placeholder="Message / Query" rows="3"></textarea>
             <label for="image">Upload Image (optional)</label>
             <input type="file" id="image" name="image" accept="image/*">
-            <button type="submit">Submit</button>
+            <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
+            
             <p id="error" class="error"></p>
         </form>
+        -->
     </div>
-            <!--
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" placeholder="Message" required=""></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form> -->
+            
           </div><!-- End Contact Form -->
 
         </div>
@@ -438,53 +440,45 @@ background-size: cover; /* Ensures the image covers the entire element */
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/breadcrumbs.js"></script>
-  <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+  
+  <script type="text/javascript">
+    
+    function onSubmit(token) {  
+    document.getElementById("contactForm").submit();
+}
 
-            const form = event.target;
-            const name = form.name.value;
-            const email = form.email.value;
-            const mobile = form.mobile.value;
-            const message = form.message.value;
-            const image = form.image.files[0];
-
-            if (!name || !email || !mobile || !message) {
-                document.getElementById('error').textContent = "All fields except image are required!";
-                return;
-            }
-
-            document.getElementById('error').textContent = "";
-
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('mobile', mobile);
-            formData.append('message', message);
-
-            if (image) {
-                formData.append('file', image);
-            }
-
-            fetch('https://script.google.com/macros/s/AKfycbz13KcTyi86SJFGlexn_0NO-INzqr8tUVAEvDRy4NxE-QOwcIU2ewU5Ik2zUGc8kLeH/exec', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Form submitted successfully!");
-                    form.reset();
-                } else {
-                    alert("Something went wrong, please try again.");
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("There was an error submitting the form.");
-            });
+function postInfo() {
+    var my_form_status = $('#contactForm')[0].checkValidity();
+    
+    if (my_form_status) {
+        var mydata = jQuery('#contactForm').serializeArray();
+        jQuery.ajax({
+            crossDomain: true,
+            url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSf-wpporoSO1WLYI8m4C7WxaW3Oef8yvLkzA_WbcnIG3DHtZQ/formResponse',
+            method: 'POST',
+            data: mydata,
         });
-    </script>
+        
+        jQuery('#contactForm')[0].reset();
+        var msg = 'One of our Team members will get in touch with you soon.';
+        swal("Thanks for contacting us.", msg, "success");
+    } else {
+        var my_form = $('#contactForm')[0];
+        var invalid_fields = "";
+        
+        $(my_form).find('input:not([type="hidden"])').each(function(idx, ele) {
+            if (!ele.validity.valid) {
+                invalid_fields += ele.placeholder;
+                invalid_fields += '. ';
+            }
+        });
+        
+        swal("Fill required fields...", invalid_fields, "error");
+    }
+    
+    return false;
+}
+  </script>
 
    <!--
     
