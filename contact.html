@@ -239,23 +239,13 @@ background-size: cover; /* Ensures the image covers the entire element */
         <h1>Contact Us</h1>
 
         <form id="contactForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="entry.102685008" required><br><br>
         
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="entry.916366651" required><br><br>
-        
-        <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="entry.515368400" required><br><br>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="entry.1864843199"></textarea><br><br>
-        
+        <input type="text" id="name" name="entry.102685008" required placeholder="Name"><br>
+        <input type="email" id="email" name="entry.916366651" required placeholder="Email"><br>
+        <input type="tel" id="mobile" name="entry.515368400" required placeholder="10 Digit Mobile Number"><br>
+        <textarea id="message" name="entry.1864843199" placeholder="Message"></textarea><br>
         <label for="image">Upload Image:</label>
-        <input type="file" id="image" name="entry.682503364" accept="image/*"><br><br>
-        
-        <input type="hidden" name="fvv" value="1">
-        <input type="hidden" name="fbzx" value="5795735406676352104">
+        <input type="file" id="image" name="entry.682503364" accept="image/*">
         
         <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
     </form>
@@ -449,19 +439,23 @@ background-size: cover; /* Ensures the image covers the entire element */
 
 function postInfo() {
     var my_form_status = $('#contactForm')[0].checkValidity();
-    
+    debugger;
     if (my_form_status) {
         var mydata = jQuery('#contactForm').serializeArray();
+        debugger;
         jQuery.ajax({
             crossDomain: true,
             url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSf-wpporoSO1WLYI8m4C7WxaW3Oef8yvLkzA_WbcnIG3DHtZQ/formResponse',
             method: 'POST',
-            data: mydata,
+            data: mydata
         });
         
         jQuery('#contactForm')[0].reset();
+        debugger;
         var msg = 'One of our Team members will get in touch with you soon.';
+        debugger;
         swal("Thanks for contacting us.", msg, "success");
+        debugger;
     } else {
         var my_form = $('#contactForm')[0];
         var invalid_fields = "";
