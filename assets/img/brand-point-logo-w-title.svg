@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+
+      .cls-3, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        font-family: OpenSans, 'Open Sans';
+        font-size: 42px;
+      }
+
+      .cls-6 {
+        font-family: OpenSans-Bold, 'Open Sans';
+        font-size: 115px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2" cx="126.5" cy="125" r="115"/>
+  <path class="cls-1" d="m126.5,10h0v230h0c-63.47,0-115-51.53-115-115h0C11.5,61.53,63.03,10,126.5,10Z"/>
+  <g>
+    <g>
+      <rect class="cls-4" x="643.5" y="37.58" width="345" height="115"/>
+      <text class="cls-6" transform="translate(278.98 137.08) scale(1.01 1)"><tspan x="0" y="0">Brand </tspan><tspan class="cls-3" x="377.18" y="0">Point</tspan></text>
+    </g>
+    <text class="cls-5" transform="translate(292 199.08) scale(1.05 1)"><tspan x="0" y="0">Where Precision Meets Reliability.</tspan></text>
+  </g>
+</svg>
