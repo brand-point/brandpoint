@@ -1,1 +1,34 @@
-https://udyamregistration.gov.in/
+Need html and internal css code for following criteria
+1. responsible webpage
+2. "Balasubrahmanyam Gummadi - Divorced" as a title to be fixed on top
+3. Profile details in the table format
+
+Name	Balasubrahmanyam Gummidi
+Date of Birth	10-Dec-1983
+Birth Star	Dhanista
+Gotram	Karthikeya Maharshi
+Complexion	Fair
+Height	5'.6''
+Education	MCA
+Occupation	Web Designer & Developer, Brio Technologies Pvt Ltd, Banjara Hills Rno14, HYD.
+Salary	50K
+Father’s Name	Satyanarayana
+Father’s Occupation	Retired Govt.
+Mother's Name	Durga
+Mother’s Occupation	House Wife
+Address	Pulletikurru, Amalapuram
+Phone/Mobile	9440179875 / 9381655363
+Preferences	I want to marry a woman who has the potential for pregnancy.
+Eating Habits	Non-Vegetarian
+
+4. slider with 5 photos , 4x6 ratio only 2 photos will be dispaly on desktop, only one photos will be display on mobile. remaining on slider 
+ links : assets/img/balaji/balasubrahmanyam-gummidi-1.jpg, assets/img/balaji/balasubrahmanyam-gummidi-2.jpg, assets/img/balaji/balasubrahmanyam-gummidi-3.jpg, assets/img/balaji/balasubrahmanyam-gummidi-4.jpg, assets/img/balaji/balasubrahmanyam-gummidi-5.jpg
+
+5. slider with 5 photos , 1x1 ratio only 2 photos will be dispaly on desktop, only one photos will be display on mobile. remaining on slider 
+  links : assets/img/balaji/balaji-1.jpg, assets/img/balaji/balaji-2.jpg, assets/img/balaji/balaji-3.jpg, assets/img/balaji/balaji-4.jpg, assets/img/balaji/balaji-5.jpg
+
+6. and one more section  contains two images 3.5 X 2 ratio
+
+7. footer that contails a logo on left side and the links https://brandpoint.in/, https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf onright side , on click the pages open in the new tab.
+
+
