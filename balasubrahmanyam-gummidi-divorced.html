@@ -173,7 +173,42 @@
 }
 
 
+.slider-wrapper {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: rgba(200, 200, 200, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+  border: none;
+  color: #000;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+
   </style>
+}
+}
+}
 </head>
 <body>
 
@@ -207,6 +242,7 @@
   <h3>Photos</h3>
 <div class="slider-wrapper" data-slider-id="slider1">
   <button class="slider-arrow arrow-left" onclick="scrollSlider(this, -1)">&#10094;</button>
+  <button class="slider-arrow arrow-right" onclick="scrollSlider(this, 1)">&#10095;</button>
   <div class="slider slider-4x6" id="slider1">
     <img src="assets/img/balaji/balasubrahmanyam-gummidi-4.jpg" alt="">
     <img src="assets/img/balaji/balasubrahmanyam-gummidi-5.jpg" alt="">
@@ -214,20 +250,21 @@
     <img src="assets/img/balaji/balasubrahmanyam-gummidi-2.jpg" alt="">
     <img src="assets/img/balaji/balasubrahmanyam-gummidi-3.jpg" alt="">
   </div>
-  <button class="slider-arrow arrow-right" onclick="scrollSlider(this, 1)">&#10095;</button>
+  
   <div class="slider-dots" id="slider1-dots"></div>
 </div>
 
 <h3>Photos</h3>
 <div class="slider-wrapper" data-slider-id="slider2">
   <button class="slider-arrow arrow-left" onclick="scrollSlider(this, -1)">&#10094;</button>
+  <button class="slider-arrow arrow-right" onclick="scrollSlider(this, 1)">&#10095;</button>
   <div class="slider slider-1x1" id="slider2">
     <img src="assets/img/balaji/balaji-1.jpg" alt="">
     <img src="assets/img/balaji/balaji-2.jpg" alt="">
     <img src="assets/img/balaji/balaji-4.jpg" alt="">
     <img src="assets/img/balaji/balaji-5.jpg" alt="">
   </div>
-  <button class="slider-arrow arrow-right" onclick="scrollSlider(this, 1)">&#10095;</button>
+  
   <div class="slider-dots" id="slider2-dots"></div>
 </div>
 
@@ -242,40 +279,53 @@
 </div>
 
 <footer>
-  <img src="assets/img/balaji/brand-point-tagline-1000x250.png" alt="BrandPoint Logo">
+  <a href="https://brandpoint.in/" target="_blank"><img src="assets/img/balaji/brand-point-tagline-1000x250.png" alt="BrandPoint Logo"></a>
   <div class="footer-links">
     <a href="https://brandpoint.in/" target="_blank">Website</a>
-    <a href="https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank">Brochure</a>
+    <a href="https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf" target="_blank">Download Brochure</a>
   </div>
 </footer>
 
 <script>
   function scrollSlider(button, direction) {
-    const slider = button.parentElement.querySelector('.slider');
-    const scrollAmount = slider.clientWidth / 1.1;
-    slider.scrollBy({
-      left: direction * scrollAmount,
-      behavior: 'smooth'
-    });
-  }
+  const slider = button.parentElement.querySelector('.slider');
+  const images = slider.querySelectorAll('img');
+  const scrollAmount = slider.clientWidth;
+  const total = images.length;
+
+  // Calculate current index
+  let index = Math.round(slider.scrollLeft / scrollAmount);
+
+  // Update index with direction
+  index += direction;
+
+  // Loop logic
+  if (index < 0) index = total - 1;
+  if (index >= total) index = 0;
+
+  slider.scrollTo({
+    left: index * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
 
   function autoScrollSlider(id) {
-    const slider = document.getElementById(id);
-    const dotContainer = document.getElementById(id + '-dots');
-    const images = slider.querySelectorAll('img');
-    const scrollAmount = slider.clientWidth;
+  const slider = document.getElementById(id);
+  const images = slider.querySelectorAll('img');
+  const scrollAmount = slider.clientWidth;
 
-    let index = 0;
+  let index = 0;
 
-    // Auto scroll
-    setInterval(() => {
-      index = (index + 1) % images.length;
-      slider.scrollTo({
-        left: index * scrollAmount,
-        behavior: 'smooth'
-      });
-    }, 3000);
-  }
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    slider.scrollTo({
+      left: index * scrollAmount,
+      behavior: 'smooth'
+    });
+  }, 3000);
+}
+
 
   function setupDots(sliderId) {
     const slider = document.getElementById(sliderId);

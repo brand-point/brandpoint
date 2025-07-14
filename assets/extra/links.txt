@@ -21,14 +21,27 @@ Phone/Mobile	9440179875 / 9381655363
 Preferences	I want to marry a woman who has the potential for pregnancy.
 Eating Habits	Non-Vegetarian
 
-4. slider with 5 photos , 4x6 ratio only 2 photos will be dispaly on desktop, only one photos will be display on mobile. remaining on slider 
+4. slider with 5 photos , 4x6 ratio only 2 photos will be display on desktop, only one photos will be display on mobile. remaining on slider. 
  links : assets/img/balaji/balasubrahmanyam-gummidi-1.jpg, assets/img/balaji/balasubrahmanyam-gummidi-2.jpg, assets/img/balaji/balasubrahmanyam-gummidi-3.jpg, assets/img/balaji/balasubrahmanyam-gummidi-4.jpg, assets/img/balaji/balasubrahmanyam-gummidi-5.jpg
+  add dots to move slider and auto scroll. 
 
-5. slider with 5 photos , 1x1 ratio only 2 photos will be dispaly on desktop, only one photos will be display on mobile. remaining on slider 
+5. slider with 5 photos , 1x1 ratio only 2 photos will be display on desktop, only one photos will be display on mobile. remaining on slider 
   links : assets/img/balaji/balaji-1.jpg, assets/img/balaji/balaji-2.jpg, assets/img/balaji/balaji-3.jpg, assets/img/balaji/balaji-4.jpg, assets/img/balaji/balaji-5.jpg
+  add dots to move slider and auto scroll. 
 
 6. and one more section  contains two images 3.5 X 2 ratio
 
-7. footer that contails a logo on left side and the links https://brandpoint.in/, https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf onright side , on click the pages open in the new tab.
+7. footer that contains a logo on left side and the links https://brandpoint.in/, https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf on right side , on click the pages open in the new tab.
+
+add this bellow code too
+
+<!-- Open Graph Tags -->
+  <meta property="og:title" content="Balasubrahmanyam Gummadi - Divorced">
+  <meta property="og:description" content="Profile of Balasubrahmanyam Gummadi including education, occupation, and photos.">
+  <meta property="og:image" content="https://brandpoint.in/assets/img/balaji/balaji-4.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandpoint.in/balasubrahmanyam-gummadi-divorced.html">
 
 
