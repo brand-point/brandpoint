@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        font-family: OpenSans-Bold, 'Open Sans';
+        font-size: 75.63px;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        font-family: OpenSans, 'Open Sans';
+        font-size: 27.62px;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g>
+    <ellipse class="cls-2" cx="250" cy="162.62" rx="90" ry="89.78"/>
+    <path class="cls-4" d="m250.23,73.3h.22v179.55h-.22c-49.55,0-89.78-40.23-89.78-89.78h0c0-49.55,40.23-89.78,89.78-89.78Z"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-4" x="256.42" y="309.46" width="226.88" height="75.63"/>
+      <text class="cls-3" transform="translate(16.7 374.89) scale(1.01 1)"><tspan x="0" y="0">Brand </tspan><tspan class="cls-1" x="248.04" y="0">Point</tspan></text>
+    </g>
+    <text class="cls-5" transform="translate(25.27 419.67) scale(1.05 1)"><tspan x="0" y="0">Where Precision Meets Reliability.</tspan></text>
+  </g>
+</svg>
