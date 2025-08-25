@@ -263,23 +263,15 @@ background-size: cover; /* Ensures the image covers the entire element */
           <button type="submit" id="formSubmit">Submit</button>
 </form> -->
 <form action="https://formspree.io/f/mkgvwyye" method="POST">
-  <label>
-    Name:
-    <input type="text" name="name" required>
-  </label>
-  <label>
-    Mobile Number:
-    <input type="tel" name="mobile" required>
-  </label>
-  <label>
-    Your email:
-    <input type="email" name="email" required>
-  </label>
-  <label>
-    Your message:
-    <textarea name="message" required></textarea>
-  </label>
-  <button type="submit">Send</button>
+  
+    <input type="text" name="name" required placeholder="Name *" >
+  
+    <input type="tel" name="mobile" required placeholder="Mobile Number *">
+  
+    <input type="email" name="email" required placeholder="Email *">
+  
+    <textarea name="message" required placeholder="Message *"></textarea>
+  <button type="submit">Submit</button>
 </form>
 
 <!--
