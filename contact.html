@@ -249,19 +249,39 @@ background-size: cover; /* Ensures the image covers the entire element */
         
         <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
     </form> -->
-      
+      <!--
         <form action="https://formspree.io/f/mkgvwyye" method="POST" enctype="multipart/form-data" id="contactForm">
           <input type="text" id="name" name="name" required="required" placeholder="Name *">
           <input type="email" id="email" name="email" required="required" placeholder="Email *">
           <input type="tel" id="mobile" name="mobile" required="required" placeholder="10 Digit Mobile Number *">
           <textarea id="message" name="message" placeholder="Message"></textarea>
-          <!--<label>
+          <label>
             Upload File:
             <input id="image" type="file" name="upload">
-          </label>  -->
+          </label> 
           
           <button type="submit" id="formSubmit">Submit</button>
+</form> -->
+<form action="https://formspree.io/f/mkgvwyye" method="POST">
+  <label>
+    Name:
+    <input type="text" name="name" required>
+  </label>
+  <label>
+    Mobile Number:
+    <input type="tel" name="mobile" required>
+  </label>
+  <label>
+    Your email:
+    <input type="email" name="email" required>
+  </label>
+  <label>
+    Your message:
+    <textarea name="message" required></textarea>
+  </label>
+  <button type="submit">Send</button>
 </form>
+
 <!--
     <form
   action="https://formspree.io/f/mkgvwyye"
