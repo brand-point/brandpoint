@@ -249,7 +249,7 @@ background-size: cover; /* Ensures the image covers the entire element */
         
         <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
     </form> -->
-
+    <!--
         <form action="https://formspree.io/f/mkgvwyye" method="POST" enctype="multipart/form-data" id="contactForm">
           <input type="text" id="name" name="name" required="required" placeholder="Name *">
           <input type="email" id="email" name="email" required="required" placeholder="Email *">
@@ -261,6 +261,21 @@ background-size: cover; /* Ensures the image covers the entire element */
           </label>
           
           <button type="submit" id="formSubmit">Submit</button>
+</form> -->
+    <form
+  action="https://formspree.io/f/mkgvwyye"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your file:
+    <input type="file" name="upload">
+  </label>
+  <button type="submit">Send</button>
 </form>
 
 
