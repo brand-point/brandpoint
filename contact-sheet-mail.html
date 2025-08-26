@@ -179,13 +179,13 @@
 
       // Submit
       submitBtn.disabled = true;
-      try {
-        // Try normal CORS first (works for most Apps Script Web Apps)
-        const res = await fetch(SCRIPT_URL, {
+      const res = await fetch(SCRIPT_URL, {
           method: 'POST',
+          mode: 'no-cors',   // <---- add this
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
+
 
         // If response is OK and JSON, great
         let okJson = false;
