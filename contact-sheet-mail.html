@@ -105,118 +105,28 @@
   </div>
 
   <script>
-    // ==== CONFIG: paste your Apps Script Web App URL here ====
+    fetch("https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: document.getElementById("name").value,
+        mobile: document.getElementById("mobile").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    })
+})
+.then(response => response.text()) // parse as text, not JSON
+.then(data => {
+    console.log("Response:", data);
+    alert("✅ Form submitted successfully!");
+})
+.catch(error => {
+    console.error("Error:", error);
+    alert("❌ Something went wrong.");
+});
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec";
-    // =========================================================
-
-    const form = document.getElementById('contactForm');
-    const statusEl = document.getElementById('status');
-    const submitBtn = document.getElementById('submitBtn');
-
-    // Only digits in mobile; cap at 10
-    const mobileInput = document.getElementById('mobile');
-    mobileInput.addEventListener('input', function () {
-      this.value = this.value.replace(/\D/g, '').slice(0, 10);
-    });
-
-    // Simple validators
-    const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    const mobileOk = (v) => /^[0-9]{10}$/.test(v);
-
-    function setFieldValidity(fieldId, ok) {
-      const box = document.getElementById(fieldId);
-      const err = box.querySelector('.error');
-      if (ok) {
-        box.classList.remove('invalid');
-        if (err) err.style.display = 'none';
-      } else {
-        box.classList.add('invalid');
-        if (err) err.style.display = 'block';
-      }
-    }
-
-    function showStatus(msg, good = true) {
-      statusEl.textContent = msg;
-      statusEl.className = 'status ' + (good ? 'ok' : 'bad');
-      statusEl.style.display = 'block';
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      statusEl.style.display = 'none';
-
-      const name = document.getElementById('name').value.trim();
-      const mobile = mobileInput.value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const honeypot = document.getElementById('website').value; // should be empty
-
-      // Validate required fields
-      let ok = true;
-      setFieldValidity('f-name', !!name);
-      if (!name) ok = false;
-
-      setFieldValidity('f-mobile', mobileOk(mobile));
-      if (!mobileOk(mobile)) ok = false;
-
-      setFieldValidity('f-email', emailOk(email));
-      if (!emailOk(email)) ok = false;
-
-      // Honeypot check
-      if (honeypot) {
-        // Silently ignore spam submissions
-        return;
-      }
-
-      if (!ok) {
-        showStatus('Please fix the highlighted fields and try again.', false);
-        return;
-      }
-
-      // Prepare payload
-      const payload = { name, mobile, email, message, source: location.href, ts: new Date().toISOString() };
-
-      // Submit
-      submitBtn.disabled = true;
-      const res = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',   // <---- add this
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-
-        // If response is OK and JSON, great
-        let okJson = false;
-        try {
-          const j = await res.json();
-          okJson = j && (j.result === 'success' || j.status === 'ok');
-        } catch (_) { /* ignore */ }
-
-        if (res.ok && okJson) {
-          form.reset();
-          showStatus('Thank you! Your message has been sent.');
-        } else if (!res.ok) {
-          // Fallback to no-cors (can’t read response but usually succeeds)
-          await fetch(SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          form.reset();
-          showStatus('Thank you! Your message has been sent.');
-        } else {
-          form.reset();
-          showStatus('Submitted. (Note: response could not be verified, but likely succeeded.)');
-        }
-      } catch (err) {
-        showStatus('Network error. Please try again.', false);
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
 
     
   </script>
