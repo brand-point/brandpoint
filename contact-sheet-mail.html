@@ -93,8 +93,8 @@
           <textarea id="message" name="message" placeholder="How can we help?"></textarea>
         </div>
 
-        <!-- Honeypot (spam trap, stays hidden) 
-        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true"> -->
+        <!-- Honeypot (spam trap, stays hidden)
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">  -->
 
         <button id="submitBtn" type="submit">Submit</button>
 
@@ -105,30 +105,30 @@
   </div>
 
   <script>
-    fetch("https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec", {
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // stop page reload
+
+  fetch("YOUR_EXEC_URL", {
     method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-        name: document.getElementById("name").value,
-        mobile: document.getElementById("mobile").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value
+      name: document.getElementById("name").value,
+      mobile: document.getElementById("mobile").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value
     })
-})
-.then(response => response.text()) // parse as text, not JSON
-.then(data => {
+  })
+  .then(res => res.json())
+  .then(data => {
     console.log("Response:", data);
     alert("✅ Form submitted successfully!");
-})
-.catch(error => {
-    console.error("Error:", error);
+  })
+  .catch(err => {
+    console.error("Error:", err);
     alert("❌ Something went wrong.");
+  });
 });
+</script>
 
-
-
-  </script>
 </body>
 </html>
