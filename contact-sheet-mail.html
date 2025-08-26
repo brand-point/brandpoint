@@ -93,9 +93,6 @@
           <textarea id="message" name="message" placeholder="How can we help?"></textarea>
         </div>
 
-        <!-- Honeypot (spam trap, stays hidden)
-        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">  -->
-
         <button id="submitBtn" type="submit">Submit</button>
 
         <div id="status" class="status" role="status" aria-live="polite"></div>
@@ -103,29 +100,41 @@
       </form>
     </div>
   </div>
+<script>
+  const form = document.getElementById("contactForm");
+  const statusDiv = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
 
-  <script>
-const url = "https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec";
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent normal form submission
 
-const params = new URLSearchParams({
-  name: document.getElementById("name").value,
-  mobile: document.getElementById("mobile").value,
-  email: document.getElementById("email").value,
-  message: document.getElementById("message").value
-});
+    // Get values
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim() || "null";
 
-fetch(`${url}?${params.toString()}`)
-  .then(res => res.json())
-  .then(data => {
-    console.log("Response:", data);
-    alert("✅ Form submitted successfully!");
-  })
-  .catch(err => {
-    console.error("Error:", err);
-    alert("❌ Something went wrong.");
+    // Disable button & show status
+    submitBtn.disabled = true;
+    statusDiv.textContent = "Submitting...";
+    statusDiv.className = "status ok";
+    statusDiv.style.display = "block";
+
+    // Build query params
+    const params = new URLSearchParams({
+      name: name,
+      mobile: mobile,
+      email: email,
+      message: message
+    });
+
+    // Redirect after 1.5 sec delay
+    setTimeout(() => {
+      window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
+    }, 1500);
   });
-
 </script>
+
 
 </body>
 </html>

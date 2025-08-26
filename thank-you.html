@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <title>Thank you</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -90,6 +90,16 @@
 <body>
     <div class="container">
         <div class="illustration"><img src="assets/img/brand-point-logo-w-title.png" width="150" height="40"></div>
+        <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("show-name").textContent = params.get("name") || '';
+    document.getElementById("show-phone").textContent = params.get("mobile") || '';
+    document.getElementById("show-email").textContent = params.get("email") || '';
+    document.getElementById("show-message").textContent = params.get("message") || '';
+  });
+</script>
+<h3 style="color:#000000; font-size:30px;">☕ Hi <strong id="show-name" style="color:#000000;">Hi</strong>,<strong id="show-phone" style="color:#ffe11e; display:none;"></strong> <strong id="show-email" style="color:#ffe11e; display:none;"></strong><strong style="color:#ffe11e; display: none;"></strong> <strong id="show-message" style="color:#ffe11e; display: none;"> message</strong></h3>
         <h2>Thank you for contacting us!</h2>
         <p style="line-height:2;" >We’ll be in touch with you shortly.<br>For quicker assistance, feel free to<br>call or WhatsApp us at <a href="tel:+919381655363" target="_blank" style="text-decoration: none; color: #000000;" class="container-small" id="container-small"><strong>+91 93816 55363</strong></a><br>or<br>drop us an email at <a href="the.brandpoint.team@gmail.com" target="_blank" style="text-decoration: none;color: #000000;" class="container-small" id="container-small"><strong>the.brandpoint.team@gmail.com</strong></a><br><br><strong>We’ll be happy to help you further.</strong></p>
         <a href="index.html" class="btn">Back to Brand Point</a>
