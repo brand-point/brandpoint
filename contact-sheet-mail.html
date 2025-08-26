@@ -120,20 +120,30 @@
     statusDiv.className = "status ok";
     statusDiv.style.display = "block";
 
-    // Build query params
-    const params = new URLSearchParams({
+    // Step 1: Send all params to contact-sheet-mail.html
+    const allParams = new URLSearchParams({
       name: name,
       mobile: mobile,
       email: email,
       message: message
     });
 
-    // Redirect after 1.5 sec delay
-    setTimeout(() => {
-      window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
-    }, 1500);
+    // Open contact-sheet-mail.html (hidden request)
+    fetch("https://brandpoint.in/contact-sheet-mail.html?" + allParams.toString())
+      .then(() => {
+        // Step 2: Redirect only with name to thank-you.html
+        setTimeout(() => {
+          window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(name);
+        }, 1500);
+      })
+      .catch(() => {
+        statusDiv.textContent = "Something went wrong. Try again.";
+        statusDiv.className = "status bad";
+        submitBtn.disabled = false;
+      });
   });
 </script>
+
 
 
 </body>

@@ -93,10 +93,7 @@
         <script>
   document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
-    document.getElementById("show-name").textContent = params.get("name") || '';
-    document.getElementById("show-phone").textContent = params.get("mobile") || '';
-    document.getElementById("show-email").textContent = params.get("email") || '';
-    document.getElementById("show-message").textContent = params.get("message") || '';
+    document.getElementById("show-name").textContent = params.get("name") || ''
   });
 </script>
 <h3 style="color:#000000; font-size:30px;">☕ Hi <strong id="show-name" style="color:#000000;">Hi</strong>,<strong id="show-phone" style="color:#ffe11e; display:none;"></strong> <strong id="show-email" style="color:#ffe11e; display:none;"></strong><strong style="color:#ffe11e; display: none;"></strong> <strong id="show-message" style="color:#ffe11e; display: none;"> message</strong></h3>
