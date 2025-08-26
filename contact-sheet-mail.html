@@ -136,14 +136,41 @@
       message: message
     });
 
-    // Step 1: Open contact-sheet-mail.html in new tab
+    // Step 1: Open contact-sheet-mail.html in new tab (to hit Apps Script)
     window.open("https://brandpoint.in/contact-sheet-mail.html?" + allParams.toString(), "_blank");
 
-    // Step 2: Redirect to thank-you.html (only with name) after 1.5s
+    // Step 2: Redirect current tab to thank-you.html (only with name) after 1.5s
     setTimeout(() => {
       window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(name);
     }, 1500);
   });
+</script>
+
+<script>
+  // Extract query params from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get("name") || "";
+  const mobile = urlParams.get("mobile") || "";
+  const email = urlParams.get("email") || "";
+  const message = urlParams.get("message") || "";
+
+  // Your Google Apps Script Web App URL
+  const scriptURL = "https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec";
+
+  // Build params for Apps Script
+  const params = new URLSearchParams({ name, mobile, email, message });
+
+  // Call the Google Apps Script
+  fetch(scriptURL + "?" + params.toString())
+    .then(res => res.text())
+    .then(data => {
+      console.log("Apps Script Response:", data);
+      document.body.innerHTML = "<h2>Data sent successfully!</h2>";
+    })
+    .catch(err => {
+      console.error("Error:", err);
+      document.body.innerHTML = "<h2>Error sending data.</h2>";
+    });
 </script>
 
 
