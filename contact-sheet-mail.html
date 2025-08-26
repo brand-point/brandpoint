@@ -114,13 +114,21 @@
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim() || "null";
 
+    // Validation (required fields)
+    if (!name || !mobile || !email) {
+      statusDiv.textContent = "Please fill in all required fields (Name, Mobile, Email).";
+      statusDiv.className = "status bad";
+      statusDiv.style.display = "block";
+      return;
+    }
+
     // Disable button & show status
     submitBtn.disabled = true;
     statusDiv.textContent = "Submitting...";
     statusDiv.className = "status ok";
     statusDiv.style.display = "block";
 
-    // Step 1: Send all params to contact-sheet-mail.html
+    // Build params
     const allParams = new URLSearchParams({
       name: name,
       mobile: mobile,
@@ -128,21 +136,16 @@
       message: message
     });
 
-    // Open contact-sheet-mail.html (hidden request)
-    fetch("https://brandpoint.in/contact-sheet-mail.html?" + allParams.toString())
-      .then(() => {
-        // Step 2: Redirect only with name to thank-you.html
-        setTimeout(() => {
-          window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(name);
-        }, 1500);
-      })
-      .catch(() => {
-        statusDiv.textContent = "Something went wrong. Try again.";
-        statusDiv.className = "status bad";
-        submitBtn.disabled = false;
-      });
+    // Step 1: Open contact-sheet-mail.html in new tab
+    window.open("https://brandpoint.in/contact-sheet-mail.html?" + allParams.toString(), "_blank");
+
+    // Step 2: Redirect to thank-you.html (only with name) after 1.5s
+    setTimeout(() => {
+      window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(name);
+    }, 1500);
   });
 </script>
+
 
 
 
