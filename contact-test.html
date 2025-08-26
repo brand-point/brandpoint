@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form Data Processing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .box {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }
+    h1 { font-size: 20px; margin-bottom: 12px; }
+    .status { font-size: 14px; margin-top: 10px; }
+    .ok { color: green; }
+    .bad { color: red; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Processing your request...</h1>
+    <p class="status" id="status">Please wait while we save your details.</p>
+  </div>
+
+  <script>
+    // Extract query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name") || "";
+    const mobile = urlParams.get("mobile") || "";
+    const email = urlParams.get("email") || "";
+    const message = urlParams.get("message") || "null";
+
+    // Your Google Apps Script Web App URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec"; // Replace with actual Apps Script deployment link
+
+    // Build query string
+    const params = new URLSearchParams({ name, mobile, email, message });
+
+    // Call the Apps Script
+    fetch(scriptURL + "?" + params.toString())
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("status").textContent = "✅ Success: Your details were saved and emailed!";
+        document.getElementById("status").className = "status ok";
+      })
+      .catch(err => {
+        document.getElementById("status").textContent = "❌ Error: Unable to process request.";
+        document.getElementById("status").className = "status bad";
+        console.error("Error sending to Apps Script:", err);
+      });
+  </script>
+</body>
+</html>
