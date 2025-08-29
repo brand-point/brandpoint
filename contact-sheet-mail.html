@@ -114,7 +114,6 @@ $form[0].addEventListener("submit", function(e) {
   const message = $form[0].querySelector("#message").value.trim();
 
   const data = { name, mobile, email, message };
-
   const status = document.getElementById("status");
   status.textContent = "Submitting...";
 
@@ -126,8 +125,22 @@ $form[0].addEventListener("submit", function(e) {
   .then(res => res.json())
   .then(response => {
     if (response.result === "success") {
-      status.textContent = "✅ Thank you! We’ll get back to you soon.";
+      status.textContent = "✅ Thank you! Redirecting...";
+
+      // clear form
       $form[0].reset();
+
+      // pass submitted values to thank-you page (optional)
+      const params = new URLSearchParams({
+        name: name,
+        mobile: mobile,
+        email: email
+      });
+
+      // Redirect to thank-you page after short delay
+      setTimeout(() => {
+        window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
+      }, 800); // 0.8 seconds
     } else {
       status.textContent = "❌ Error submitting form. Try again.";
     }
@@ -138,6 +151,7 @@ $form[0].addEventListener("submit", function(e) {
   });
 });
 </script>
+
 
 </body>
 
