@@ -120,6 +120,7 @@ $form[0].addEventListener("submit", function(e) {
 
   fetch("https://script.google.com/macros/s/AKfycbwuO-uL_Tn03Qs-GQNafaXp01K-_M88PMxTFllm11FOTLBWQOfKc4NYyWa1lPHdhGN4OA/exec", {
     method: "POST",
+    mode: "no-cors",   // ⬅️ bypass CORS
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
   })
