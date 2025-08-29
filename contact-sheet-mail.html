@@ -103,16 +103,16 @@
   </div>
 
   <script>
-const $form = document.querySelector("#contactForm");
+const $form = document.querySelectorAll("#contactForm");
 
-$form.addEventListener("submit", function(e) {
+$form[0].addEventListener("submit", function(e) {
   e.preventDefault();
 
-  // get field values
-  const name = $form.querySelector("#name").value.trim();
-  const mobile = $form.querySelector("#mobile").value.trim();
-  const email = $form.querySelector("#email").value.trim();
-  const message = $form.querySelector("#message").value.trim();
+  // get field values using $form[0].querySelector
+  const name = $form[0].querySelector("#name").value.trim();
+  const mobile = $form[0].querySelector("#mobile").value.trim();
+  const email = $form[0].querySelector("#email").value.trim();
+  const message = $form[0].querySelector("#message").value.trim();
 
   const data = { name, mobile, email, message };
   const status = document.getElementById("status");
@@ -121,22 +121,31 @@ $form.addEventListener("submit", function(e) {
   fetch("https://script.google.com/macros/s/AKfycbwuO-uL_Tn03Qs-GQNafaXp01K-_M88PMxTFllm11FOTLBWQOfKc4NYyWa1lPHdhGN4OA/exec", {
     method: "POST",
     mode: "no-cors",   // ⬅️ bypass CORS
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
   })
-  .then(() => {
-    // ✅ Since we can't read JSON, just assume success
-    status.textContent = "✅ Thank you! Redirecting...";
+  .then(res => res.json())
+  .then(response => {
+    if (response.result === "success") {
+      status.textContent = "✅ Thank you! Redirecting...";
 
-    // clear form
-    $form.reset();
+      // clear form
+      $form[0].reset();
 
-    // pass submitted values to thank-you page (optional)
-    const params = new URLSearchParams({ name, mobile, email });
+      // pass submitted values to thank-you page (optional)
+      const params = new URLSearchParams({
+        name: name,
+        mobile: mobile,
+        email: email
+      });
 
-    setTimeout(() => {
-      window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
-    }, 800);
+      // Redirect to thank-you page after short delay
+      setTimeout(() => {
+        window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
+      }, 800); // 0.8 seconds
+    } else {
+      status.textContent = "❌ Error submitting form. Try again.";
+    }
   })
   .catch(err => {
     status.textContent = "⚠️ Network error. Please try later.";
