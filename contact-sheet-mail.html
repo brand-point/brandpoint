@@ -124,7 +124,7 @@ $form[0].addEventListener("submit", function(e) {
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
   })
-  .then(res => res.json())
+  
   .then(response => {
     if (response.result === "success") {
       status.textContent = "✅ Thank you! Redirecting...";
