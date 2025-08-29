@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
   <title>Contact Form → Google Sheet + Email</title>
   <style>
     :root { --bg:#0b1020; --card:#131a33; --muted:#a7b0c7; --text:#e8ecf7; --accent:#6aa5ff; --accent2:#8dd39e; }
@@ -116,8 +117,8 @@ $form[0].addEventListener("submit", function(e) {
   const data = { name, mobile, email, message };
   const status = document.getElementById("status");
   status.textContent = "Submitting...";
-  
-  fetch("https://script.google.com/macros/s/AKfycbzZon7Dn9_GYbDrBaTlO24aqusK7el7jlan_NWEpR5cJJ3af7KzNpeNi7AXusvyCFe-Xg/exec", {
+
+  fetch("https://script.google.com/macros/s/AKfycbwuO-uL_Tn03Qs-GQNafaXp01K-_M88PMxTFllm11FOTLBWQOfKc4NYyWa1lPHdhGN4OA/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
