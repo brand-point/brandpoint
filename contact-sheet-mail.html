@@ -100,81 +100,41 @@
       </form>
     </div>
   </div>
-<script>
-  const form = document.getElementById("contactForm");
-  const statusDiv = document.getElementById("status");
-  const submitBtn = document.getElementById("submitBtn");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // prevent normal form submission
-
-    // Get values
-    const name = document.getElementById("name").value.trim();
-    const mobile = document.getElementById("mobile").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim() || "null";
-
-    // Validation (required fields)
-    if (!name || !mobile || !email) {
-      statusDiv.textContent = "Please fill in all required fields (Name, Mobile, Email).";
-      statusDiv.className = "status bad";
-      statusDiv.style.display = "block";
-      return;
-    }
-
-    // Disable button & show status
-    submitBtn.disabled = true;
-    statusDiv.textContent = "Submitting...";
-    statusDiv.className = "status ok";
-    statusDiv.style.display = "block";
-
-    // Build params
-    const allParams = new URLSearchParams({
-      name: name,
-      mobile: mobile,
-      email: email,
-      message: message
-    });
-
-    // Step 1: Open contact-sheet-mail.html in new tab (to hit Apps Script)
-    window.open("https://brandpoint.in/contact-sheet-mail.html?" + allParams.toString(), "_blank");
-
-    // Step 2: Redirect current tab to thank-you.html (only with name) after 1.5s
-    setTimeout(() => {
-      window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(name);
-    }, 1500);
-  });
-</script>
-
-<script>
-  // Extract query params from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const name = urlParams.get("name") || "";
-  const mobile = urlParams.get("mobile") || "";
-  const email = urlParams.get("email") || "";
-  const message = urlParams.get("message") || "";
-
-  // Your Google Apps Script Web App URL
-  const scriptURL = "https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec";
-
-  // Build params for Apps Script
-  const params = new URLSearchParams({ name, mobile, email, message });
-
-  // Call the Google Apps Script
-  fetch(scriptURL + "?" + params.toString())
-    .then(res => res.text())
-    .then(data => {
-      console.log("Apps Script Response:", data);
-      document.body.innerHTML = "<h2>Data sent successfully!</h2>";
-    })
-    .catch(err => {
-      console.error("Error:", err);
-      document.body.innerHTML = "<h2>Error sending data.</h2>";
-    });
-</script>
-
-
-
-
 </body>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = {
+    name: form.name.value.trim(),
+    mobile: form.mobile.value.trim(),
+    email: form.email.value.trim(),
+    message: form.message.value.trim()
+  };
+
+  const status = document.getElementById("status");
+  status.textContent = "Submitting...";
+
+  fetch("https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(response => {
+    if (response.result === "success") {
+      status.textContent = "✅ Thank you! We’ll get back to you soon.";
+      form.reset();
+    } else {
+      status.textContent = "❌ Error submitting form. Try again.";
+    }
+  })
+  .catch(err => {
+    status.textContent = "⚠️ Network error. Please try later.";
+    console.error(err);
+  });
+});
+</script>
+
 </html>
