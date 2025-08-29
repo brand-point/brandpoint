@@ -117,7 +117,7 @@ $form[0].addEventListener("submit", function(e) {
   const status = document.getElementById("status");
   status.textContent = "Submitting...";
   
-  fetch("https://script.google.com/macros/s/AKfycby697y8wzp906ojjM730h3zwnYeqMs1hatvUbMDvoCYjZWKsL1ygqE7A8tgF7W9Ugsd-Q/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwuO-uL_Tn03Qs-GQNafaXp01K-_M88PMxTFllm11FOTLBWQOfKc4NYyWa1lPHdhGN4OA/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
