@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <link rel="stylesheet" href="https://storage.googleapis.com/briocoin/sweetalert.css">
+<script  src="https://storage.googleapis.com/briocoin/jquery.js"></script>
+<script  src="https://storage.googleapis.com/briocoin/sweetalert.min.js"></script>
   <title>Contact Form → Google Sheet + Email</title>
   <style>
     :root { --bg:#0b1020; --card:#131a33; --muted:#a7b0c7; --text:#e8ecf7; --accent:#6aa5ff; --accent2:#8dd39e; }
@@ -103,56 +106,98 @@
   </div>
 
   <script>
-const $form = document.querySelectorAll("#contactForm");
+const $form = document.querySelector("#contactForm");
+const status = document.getElementById("status");
+
+function validateForm() {
+  let valid = true;
+
+  // Name
+  const nameField = $form[0].querySelector("#name");
+  if (!nameField.value.trim()) {
+    nameField.parentElement.classList.add("invalid");
+    nameField.parentElement.querySelector(".error").style.display = "block";
+    valid = false;
+  } else {
+    nameField.parentElement.classList.remove("invalid");
+    nameField.parentElement.querySelector(".error").style.display = "none";
+  }
+
+  // Mobile
+  const mobileField = $form[0].querySelector("#mobile");
+  const mobileRegex = /^[0-9]{10}$/;
+  if (!mobileRegex.test(mobileField.value.trim())) {
+    mobileField.parentElement.classList.add("invalid");
+    mobileField.parentElement.querySelector(".error").style.display = "block";
+    valid = false;
+  } else {
+    mobileField.parentElement.classList.remove("invalid");
+    mobileField.parentElement.querySelector(".error").style.display = "none";
+  }
+
+  // Email
+  const emailField = $form[0].querySelector("#email");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailField.value.trim())) {
+    emailField.parentElement.classList.add("invalid");
+    emailField.parentElement.querySelector(".error").style.display = "block";
+    valid = false;
+  } else {
+    emailField.parentElement.classList.remove("invalid");
+    emailField.parentElement.querySelector(".error").style.display = "none";
+  }
+
+  return valid;
+}
 
 $form[0].addEventListener("submit", function(e) {
   e.preventDefault();
 
-  // get field values using $form[0].querySelector
-  const name = $form[0].querySelector("#name").value.trim();
-  const mobile = $form[0].querySelector("#mobile").value.trim();
-  const email = $form[0].querySelector("#email").value.trim();
-  const message = $form[0].querySelector("#message").value.trim();
+  // Run validation first
+  if (!validateForm()) {
+    status.textContent = "⚠️ Please fix the errors above.";
+    status.className = "status bad";
+    status.style.display = "block";
+    return; // ⬅️ stop submission
+  }
+
+  // If valid, then submit
+  const name = $form[0]..querySelector("#name").value.trim();
+  const mobile = $form[0]..querySelector("#mobile").value.trim();
+  const email = $form[0]..querySelector("#email").value.trim();
+  const message = $form[0]..querySelector("#message").value.trim();
 
   const data = { name, mobile, email, message };
-  const status = document.getElementById("status");
+
   status.textContent = "Submitting...";
+  status.className = "status";
+  status.style.display = "block";
 
   fetch("https://script.google.com/macros/s/AKfycbwuO-uL_Tn03Qs-GQNafaXp01K-_M88PMxTFllm11FOTLBWQOfKc4NYyWa1lPHdhGN4OA/exec", {
     method: "POST",
-    mode: "no-cors",   // ⬅️ bypass CORS
+    mode: "no-cors",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
   })
-  
-  .then(response => {
-    if (response.result === "success") {
-      status.textContent = "✅ Thank you! Redirecting...";
+  .then(() => {
+    status.textContent = "✅ Thank you! Redirecting...";
+    status.className = "status ok";
 
-      // clear form
-      $form[0].reset();
+    $form.reset();
 
-      // pass submitted values to thank-you page (optional)
-      const params = new URLSearchParams({
-        name: name,
-        mobile: mobile,
-        email: email
-      });
-
-      // Redirect to thank-you page after short delay
-      setTimeout(() => {
-        window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
-      }, 800); // 0.8 seconds
-    } else {
-      status.textContent = "❌ Error submitting form. Try again.";
-    }
+    const params = new URLSearchParams({ name, mobile, email });
+    setTimeout(() => {
+      window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
+    }, 800);
   })
   .catch(err => {
     status.textContent = "⚠️ Network error. Please try later.";
+    status.className = "status bad";
     console.error(err);
   });
 });
 </script>
+
 
 
 </body>
