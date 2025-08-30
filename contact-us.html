@@ -179,16 +179,27 @@ $form[0].addEventListener("submit", function(e) {
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
   })
-  .then(() => {
-    status.textContent = "✅ Thank you! Redirecting...";
-    status.className = "status ok";
+  .then(response => {
+    if (response.result === "success") {
+      status.textContent = "✅ Thank you! Redirecting...";
 
-    $form.reset();
+      // clear form
+      $form[0].reset();
 
-    const params = new URLSearchParams({ name, mobile, email });
-    setTimeout(() => {
-      window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
-    }, 800);
+      // pass submitted values to thank-you page (optional)
+      const params = new URLSearchParams({
+        name: name,
+        mobile: mobile,
+        email: email
+      });
+
+      // Redirect to thank-you page after short delay
+      setTimeout(() => {
+        window.location.href = "https://brandpoint.in/thank-you.html?" + params.toString();
+      }, 800); // 0.8 seconds
+    } else {
+      status.textContent = "❌ Error submitting form. Try again.";
+    }
   })
   .catch(err => {
     status.textContent = "⚠️ Network error. Please try later.";
