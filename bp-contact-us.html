@@ -485,8 +485,9 @@ function postInfo() {
                      "One of our Team members will get in touch with you soon.",
                      "success"
                 ).then(function() {
-                    var nameVal = $('#name').val();
+                    var nameVal = $('input[name="entry.1860950292"]').val();
 console.log("Redirect name:", nameVal);
+
 window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
                 });
                 $('#contactForm')[0].reset();
