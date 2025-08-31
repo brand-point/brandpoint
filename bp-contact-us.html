@@ -443,72 +443,51 @@ background-size: cover; /* Ensures the image covers the entire element */
   
   <script type="text/javascript">
 function postInfo() {
-    var my_form = $('#contactForm')[0];
+    var nameVal = $('input[name="entry.1860950292"]').val();
 
-    // 🔎 Validate required fields
-    var missingFields = [];
-    $(my_form).find('input[required], textarea[required]').each(function() {
-        if (!$(this).val().trim()) {
-            missingFields.push($(this).attr("placeholder"));
+    var formData = {
+        "entry.1860950292": nameVal,
+        "entry.1287064486": $('input[name="entry.1287064486"]').val(),
+        "entry.235184857": $('input[name="entry.235184857"]').val(),
+        "entry.938750516": $('textarea[name="entry.938750516"]').val()
+    };
+
+    // 1️⃣ Send to Google Form (so Form Responses tab updates)
+    $.ajax({
+        url: "https://docs.google.com/forms/d/e/1IC_Dxw69NukDyE3QYCR5JpsJbgh4VxENgXmTqXGqs5Q/formResponse", // replace with your Form action URL
+        method: "POST",
+        data: formData,
+        dataType: "xml",  // Google Form returns XML, not JSON
+        statusCode: {
+            0: function() { console.log("Form response recorded."); },
+            200: function() { console.log("Form response recorded."); }
         }
     });
 
-    if (missingFields.length > 0) {
-        swal("Please fill the Required fields", missingFields.join(", "), "error");
-        return false;
-    }
-
-    // ✅ Capture name value here before AJAX & reset
-    var nameVal = $('input[name="entry.1860950292"]').val();
-
-    // AJAX to Google Apps Script
+    // 2️⃣ Send to Apps Script (so your sheet + email updates)
     $.ajax({
         url: "https://script.google.com/macros/s/AKfycbxEvUdqt7hrsdvS3ZhtJzkQo1Rh4qQiDW5raivW5dFNbZITanRVVOkFM9solwUbdnyM/exec",
         method: "POST",
-        data: {
-            "entry.1860950292": $('input[name="entry.1860950292"]').val(),
-            "entry.1287064486": $('input[name="entry.1287064486"]').val(),
-            "entry.235184857": $('input[name="entry.235184857"]').val(),
-            "entry.938750516": $('textarea[name="entry.938750516"]').val()
-        },
-        dataType: "text",  // ✅ Expect plain text response
+        data: formData,
+        dataType: "text",
         success: function(response) {
-            try {
-                var res = JSON.parse(response);
-                if (res.result === "success") {
-                    swal("Thanks for contacting us.",
-                         "One of our Team members will get in touch with you soon.",
-                         "success"
-                    ).then(function() {
-                        // ✅ Redirect with Name parameter
-                        window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
-                    });
-
-                    // ✅ Reset form AFTER showing success & capturing name
-                    $('#contactForm')[0].reset();
-                }
-            } catch(e) {
-                console.log("Non-JSON response:", response);
-                swal("Thanks for contacting us.",
-                     "One of our Team members will get in touch with you soon.",
-                     "success"
-                ).then(function() {
-                    window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
-                });
-                $('#contactForm')[0].reset();
-            }
+            swal("Thanks for contacting us.",
+                 "One of our Team members will get in touch with you soon.",
+                 "success"
+            ).then(function() {
+                window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
+            });
+            $('#contactForm')[0].reset();
         },
         error: function(err) {
             swal("Error", "Something went wrong. Please try again later.", "error");
         }
     });
 
-    return false; // Prevent default form submit
+    return false;
 }
+
 </script>
-
-
-
 
 </body>
 
