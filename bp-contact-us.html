@@ -441,51 +441,55 @@ background-size: cover; /* Ensures the image covers the entire element */
   <script src="assets/js/breadcrumbs.js"></script>
 
   
-  <script>
+  <script type="text/javascript">
 function postInfo() {
-  var my_form_status = $('#contactForm')[0].checkValidity();
-
-  if (my_form_status) {
-    var mydata = $('#contactForm').serializeArray();
-
-    $.ajax({
-      crossDomain: true,
-      url: "https://script.google.com/macros/s/AKfycbzGqfMQdd1uaXaCT3GTs1RgFrFQYaKnMen3SpC6c5WTWv0_lztV3jY7-79NT2L5mfQ1/exec", // your Apps Script WebApp URL
-      method: "POST",
-      data: mydata,
-      success: function(response) {
-        swal(
-          "Thanks for contacting us.",
-          "One of our Team members will get in touch with you soon.",
-          "success"
-        ).then(function() {
-          let name = $("input[name='name']").val();
-          window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(name);
-        });
-        $('#contactForm')[0].reset();
-      },
-      error: function() {
-        swal("Error", "Something went wrong. Please try again later.", "error");
-      }
-    });
-
-  } else {
     var my_form = $('#contactForm')[0];
-    var invalid_fields = "";
 
-    $(my_form).find('input:not([type="hidden"])').each(function(idx, ele) {
-      if (!ele.validity.valid) {
-        invalid_fields += ele.placeholder + ". ";
-      }
+    var missingFields = [];
+    $(my_form).find('input[required], textarea[required]').each(function() {
+        if (!$(this).val().trim()) {
+            missingFields.push($(this).attr("placeholder"));
+        }
     });
 
-    swal("Fill required fields...", invalid_fields, "error");
-  }
+    if (missingFields.length > 0) {
+        swal("Please fill the Required fields", missingFields.join(", "), "error");
+        return false;
+    }
 
-  return false;
+    // Collect data
+    var formData = {
+        name: $('input[name="entry.1860950292"]').val(),
+        mobile: $('input[name="entry.1287064486"]').val(),
+        email: $('input[name="entry.235184857"]').val(),
+        message: $('textarea[name="entry.938750516"]').val()
+    };
+
+    // AJAX to App Script
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbzGqfMQdd1uaXaCT3GTs1RgFrFQYaKnMen3SpC6c5WTWv0_lztV3jY7-79NT2L5mfQ1/exec",
+        method: "POST",
+        data: JSON.stringify(formData),
+        contentType: "application/json",
+        success: function(response) {
+            swal("Thanks for contacting us.",
+                 "One of our Team members will get in touch with you soon.",
+                 "success"
+            ).then(function() {
+                window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(formData.name);
+            });
+            $('#contactForm')[0].reset();
+        },
+        error: function() {
+            swal("Error", "Something went wrong. Please try again later.", "error");
+        }
+    });
+
+    return false;
 }
 </script>
-  
+
+
 
 </body>
 
