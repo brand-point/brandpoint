@@ -286,7 +286,7 @@ background-size: cover; /* Ensures the image covers the entire element */
               <div class="contact-box">
     <h2>Contact Us</h2>
     <form id="contactForm" onsubmit="return postInfo();" novalidate> 
-  <input type="text" name="entry.1860950292" placeholder="Name *" required>
+  <input type="text" id="name" name="entry.1860950292" placeholder="Name *" required>
   <input type="text" name="entry.1287064486" placeholder="Mobile Number *" required>
   <input type="email" name="entry.235184857" placeholder="Email *" required>
   <textarea name="entry.938750516" placeholder="Message"></textarea>
@@ -485,7 +485,7 @@ function postInfo() {
                      "One of our Team members will get in touch with you soon.",
                      "success"
                 ).then(function() {
-                    var nameVal = $('input[name="entry.1860950292"]').val();
+                    var nameVal = $('#name').val();
 console.log("Redirect name:", nameVal);
 window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
                 });
