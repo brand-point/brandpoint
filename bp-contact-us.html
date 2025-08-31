@@ -467,24 +467,23 @@ function postInfo() {
 
     // AJAX to App Script
     $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbzGqfMQdd1uaXaCT3GTs1RgFrFQYaKnMen3SpC6c5WTWv0_lztV3jY7-79NT2L5mfQ1/exec",
-        method: "POST",
-        mode: "no-cors",
-        data: JSON.stringify(formData),
-        contentType: "application/json",
-        success: function(response) {
-            swal("Thanks for contacting us.",
-                 "One of our Team members will get in touch with you soon.",
-                 "success"
-            ).then(function() {
-                window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(formData.name);
-            });
-            $('#contactForm')[0].reset();
-        },
-        error: function() {
-            swal("Error", "Something went wrong. Please try again later.", "error");
-        }
-    });
+    url: "https://script.google.com/macros/s/AKfycbzupNCHGQXKIfhduIDYv0PR5itzpBgwGoLKBrgfRgbD_k5k9OtxJNB2LLL4Q0AaX-Dn/exec",
+    method: "POST",
+    data: formData,   // <-- no JSON.stringify
+    dataType: "json", // expect JSON back
+    success: function(response) {
+        swal("Thanks for contacting us.",
+             "One of our Team members will get in touch with you soon.",
+             "success"
+        ).then(function() {
+            window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(formData.name);
+        });
+        $('#contactForm')[0].reset();
+    },
+    error: function() {
+        swal("Error", "Something went wrong. Please try again later.", "error");
+    }
+});
 
     return false;
 }
