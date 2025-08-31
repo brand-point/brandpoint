@@ -445,6 +445,7 @@ background-size: cover; /* Ensures the image covers the entire element */
 function postInfo() {
     var my_form = $('#contactForm')[0];
 
+    // 🔎 Validate required fields
     var missingFields = [];
     $(my_form).find('input[required], textarea[required]').each(function() {
         if (!$(this).val().trim()) {
@@ -457,55 +458,55 @@ function postInfo() {
         return false;
     }
 
-    // Collect data
-    var formData = {
-        name: $('input[name="entry.1860950292"]').val(),
-        mobile: $('input[name="entry.1287064486"]').val(),
-        email: $('input[name="entry.235184857"]').val(),
-        message: $('textarea[name="entry.938750516"]').val()
-    };
+    // ✅ Capture name value here before AJAX & reset
+    var nameVal = $('input[name="entry.1860950292"]').val();
 
-    // AJAX to App Script
+    // AJAX to Google Apps Script
     $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbxEvUdqt7hrsdvS3ZhtJzkQo1Rh4qQiDW5raivW5dFNbZITanRVVOkFM9solwUbdnyM/exec",
-    method: "POST",
-    data: {
-        "entry.1860950292": $('input[name="entry.1860950292"]').val(),
-        "entry.1287064486": $('input[name="entry.1287064486"]').val(),
-        "entry.235184857": $('input[name="entry.235184857"]').val(),
-        "entry.938750516": $('textarea[name="entry.938750516"]').val()
-    },
-    dataType: "text",  // ✅ not json
-    success: function(response) {
-  try {
-    var res = JSON.parse(response);
-    if (res.result === "success") {
-      var nameVal = $('input[name="entry.1860950292"]').val(); // get before reset
-      console.log("Redirect name:", nameVal);
+        url: "https://script.google.com/macros/s/AKfycbxEvUdqt7hrsdvS3ZhtJzkQo1Rh4qQiDW5raivW5dFNbZITanRVVOkFM9solwUbdnyM/exec",
+        method: "POST",
+        data: {
+            "entry.1860950292": $('input[name="entry.1860950292"]').val(),
+            "entry.1287064486": $('input[name="entry.1287064486"]').val(),
+            "entry.235184857": $('input[name="entry.235184857"]').val(),
+            "entry.938750516": $('textarea[name="entry.938750516"]').val()
+        },
+        dataType: "text",  // ✅ Expect plain text response
+        success: function(response) {
+            try {
+                var res = JSON.parse(response);
+                if (res.result === "success") {
+                    swal("Thanks for contacting us.",
+                         "One of our Team members will get in touch with you soon.",
+                         "success"
+                    ).then(function() {
+                        // ✅ Redirect with Name parameter
+                        window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
+                    });
 
-      swal("Thanks for contacting us.",
-           "One of our Team members will get in touch with you soon.",
-           "success"
-      ).then(function() {
-          window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
-      });
+                    // ✅ Reset form AFTER showing success & capturing name
+                    $('#contactForm')[0].reset();
+                }
+            } catch(e) {
+                console.log("Non-JSON response:", response);
+                swal("Thanks for contacting us.",
+                     "One of our Team members will get in touch with you soon.",
+                     "success"
+                ).then(function() {
+                    window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
+                });
+                $('#contactForm')[0].reset();
+            }
+        },
+        error: function(err) {
+            swal("Error", "Something went wrong. Please try again later.", "error");
+        }
+    });
 
-      $('#contactForm')[0].reset(); // reset AFTER swal().then
-    }
-  } catch(e) {
-    console.log("Non-JSON response:", response);
-  }
-},
-
-    error: function(err) {
-        swal("Error", "Something went wrong. Please try again later.", "error");
-    }
-});
-
-
-    return false;
+    return false; // Prevent default form submit
 }
 </script>
+
 
 
 
