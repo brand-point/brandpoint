@@ -8,7 +8,8 @@
   <meta name="description" content="where we transform your vision into a powerful brand identity. Specializing in a wide range of branding solutions, we cater to businesses looking to enhance their presence through customized products and services.">
   <meta name="keywords" content="acrylic trophies, acrylic, crystal, fiber, trophies, advertising danglers, affordable custom gift box printing, best printing services for corporate stationery, books, diaries, calendars, letterheads, envelopes, branded letterheads, branded rigid boxes, branding and promotional products, brochure design services, brochures, business card printing services, business cards visiting cards, corporate brochures printing, corporate engraving services, corporate gift boxes, corporate gifts and giveaways, corporate stationery, creative web design solutions, crystal trophies, custom brochures, custom business cards, custom danglers, custom diaries, custom engraving services, custom gift boxes, custom half-cut stickers, custom id cards, custom packaging boxes, custom printed envelopes, custom printing services, custom promotional materials, custom rigid packaging, custom rubber stamps, custom shrink wrap packaging, custom shrink wrapping for product packaging, custom stickers for business marketing, custom stickers printing, custom trophies, custom web design, custom website development, customized business stationery, customized gift wrapping, customized rigid boxes, dangler design services, danglers, die-cut stickers, e-commerce web development, employee id cards, engraved trophies and awards, engraving rubber prints, engraving for gifts, fiber optic trophies, full-cut sticker printing, full-stack web development, gifts gift boxes, half-cut full-cut stickers, high-end packaging solutions, high-end rigid packaging for luxury brands, high-quality printing services, id cards stickers, luxury rigid boxes, name tag stickers, packaging shrink wrap, personalized awards and trophies, personalized business cards, personalized calendars, personalized engraving, personalized gift boxes, personalized gift packaging, personalized gifts, personalized printing solutions, personalized stickers, personalized trophies for corporate awards, personalized vinyl stickers, premium business cards, printed books and diaries, printed business cards, printed danglers for marketing, printed id cards, printed marketing brochures, printing for businesses, product shrink wrapping, products, professional brochure printing, professional shrink wrapping, professional web design and development services, professional web design services, professional web development, promotional danglers, responsive web design, rubber stamp printing, services, shrink wrapping, shrink wrapping services, stickers for business promotion, unique gift packaging, visiting cards design, web design, web development, web development services, website design for businesses, where to buy custom business cards online.">
   <meta name="robots" content="index follow">
-  
+  /* <meta http-equiv="Access-Control-Allow-Origin" content="*"> */
+
   <!-- Favicons -->
   <link href="assets/img/brandpoint-favicon-circle-bg.png" rel="icon">
   <link href="assets/img/brandpoint-favicon-circle-bg.png" rel="apple-touch-icon">
@@ -28,12 +29,58 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  
-<link rel="stylesheet" href="https://storage.googleapis.com/briocoin/sweetalert.css">
-<script  src="https://storage.googleapis.com/briocoin/jquery.js"></script>
-<script  src="https://storage.googleapis.com/briocoin/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <style>
+    .contact-box {
+      background-color: #e8f0fe;
+      width: 350px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .contact-box textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    .contact-box button {
+      width: 100%;
+      padding: 12px;
+      background: #000;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-box button:hover {
+      opacity: 0.9;
+    }
+
     .bg-image{
       background-image: url(assets/img/contactus/contact-us.png);
 background-repeat: no-repeat;
@@ -235,80 +282,21 @@ background-size: cover; /* Ensures the image covers the entire element */
                 </div>
 
             </div> -->
-            <div class="container-contact-us">
-        <h1>Contact Us</h1>
-        <!--
-        <form id="contactForm">
-        
-        <input type="text" id="name" name="entry.102685008" required="required" placeholder="Name *"><br>
-        <input type="email" id="email" name="entry.916366651" required="required" placeholder="Email *"><br>
-        <input type="tel" id="mobile" name="entry.515368400" required="required" placeholder="10 Digit Mobile Number *"><br>
-        <textarea id="message" name="entry.1864843199" placeholder="Message"></textarea><br>
-        <label for="image">Upload Image:</label>
-        <input type="file" id="image" name="entry.682503364" accept="image/*"> 
-        
-        <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
-    </form> -->
-      <!--
-        <form action="https://formspree.io/f/mkgvwyye" method="POST" enctype="multipart/form-data" id="contactForm">
-          <input type="text" id="name" name="name" required="required" placeholder="Name *">
-          <input type="email" id="email" name="email" required="required" placeholder="Email *">
-          <input type="tel" id="mobile" name="mobile" required="required" placeholder="10 Digit Mobile Number *">
-          <textarea id="message" name="message" placeholder="Message"></textarea>
-          <label>
-            Upload File:
-            <input id="image" type="file" name="upload">
-          </label> 
-          
-          <button type="submit" id="formSubmit">Submit</button>
-</form> -->
-<form action="https://formspree.io/f/mkgvwyye" method="POST">
-  
-    <input type="text" name="name" required placeholder="Name *" id="name" >
-  
-    <input type="tel" name="mobile" required placeholder="Mobile Number *" id="mobile">
-  
-    <input type="email" name="email" required placeholder="Email *" id="email">
-  
-    <textarea name="message" required placeholder="Message *" id="message"></textarea>
-  <button type="submit" id="submit">Submit</button>
-</form>
-
-<!--
-    <form
-  action="https://formspree.io/f/mkgvwyye"
-  method="POST"
-  enctype="multipart/form-data"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your file:
-    <input type="file" name="upload">
-  </label>
-  <button type="submit">Send</button>
-</form>
--->
-
-        <!--
-        <form id="contactForm">
-            <input type="text" id="name" name="name" placeholder="* Name" required autocomplete="name">
-            <input type="email" id="email" name="email" placeholder="* Email" required autocomplete="email">
-            <input type="tel" id="mobile" name="mobile" placeholder="* 10 Digit Mobile Number" pattern="[0-9]{10}" required autocomplete="mobile">
-            <textarea id="message" name="message" placeholder="Message / Query" rows="3"></textarea>
-            <label for="image">Upload Image (optional)</label>
-            <input type="file" id="image" name="image" accept="image/*">
-            <input id="formSubmit" type="button" value="submit" onclick="postInfo()"/>
             
-            <p id="error" class="error"></p>
-        </form>
-        -->
+              <div class="contact-box">
+    <h2>Contact Us</h2>
+    <form id="contactForm" onsubmit="return postInfo(event);" novalidate>
+    <input type="text" id="name" name="entry.1860950292" placeholder="Name *" required>
+    <input type="text" id="mobile" name="entry.1287064486" placeholder="Mobile Number *" required>
+    <input type="email" id="email" name="entry.235184857" placeholder="Email *" required>
+    <input type="text" id="website" name="entry.1493938881" placeholder="Website">
+    <textarea id="message" name="entry.938750516" placeholder="Message" rows="4" maxlength="250"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  </div>
        
     </div>
-            
-          </div><!-- End Contact Form -->
 
         </div>
 
@@ -413,26 +401,7 @@ background-size: cover; /* Ensures the image covers the entire element */
           </ul>
             
           </div>
-          <!--
-          <div class="widget">
-            <div class="footer-subscribe">
-              <h3 class="widget-heading">Subscribe</h3>
-              <form action="forms/newsletter.php" method="post" class="php-email-form">
-                <div class="mb-2">
-                  <input type="text" class="form-control" name="email" placeholder="Enter your email">
-
-                  <button type="submit" class="btn btn-link">
-                    <span class="bi bi-arrow-right"></span>
-                  </button>
-                </div>
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Your subscription request has been sent. Thank you!
-                </div>
-              </form>
-            </div>
-          </div> -->
+          
         </div>
       </div>
 
@@ -472,68 +441,89 @@ background-size: cover; /* Ensures the image covers the entire element */
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/breadcrumbs.js"></script>
-  
-  <script type="text/javascript">
-    
-    function onSubmit(token) {  
-    document.getElementById("contactForm").submit();
-}
 
-function postInfo() {
-    var my_form_status = $('#contactForm')[0].checkValidity();
-    debugger;
-    if (my_form_status) {
-        var mydata = jQuery('#contactForm').serializeArray();
-        debugger;
-        jQuery.ajax({
-            crossDomain: true,
-            url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSf-wpporoSO1WLYI8m4C7WxaW3Oef8yvLkzA_WbcnIG3DHtZQ/formResponse',
-            method: 'POST',
-            data: mydata
-        });
-        
-        jQuery('#contactForm')[0].reset();
-        debugger;
-        var msg = 'One of our Team members will get in touch with you soon.';
-        debugger;
-        swal("Thanks for contacting us.", msg, "success");
-        debugger;
-    } else {
-        var my_form = $('#contactForm')[0];
-        var invalid_fields = "";
-        
-        $(my_form).find('input:not([type="hidden"])').each(function(idx, ele) {
-            if (!ele.validity.valid) {
-                invalid_fields += ele.placeholder;
-                invalid_fields += '. ';
-            }
-        });
-        
-        swal("Fill required fields...", invalid_fields, "error");
+  
+  <script>
+    // Input Restrictions
+    document.getElementById('name').addEventListener('input', function () {
+      this.value = this.value.replace(/[^A-Za-z\s]/g, '').replace(/^\s+/g, '');
+    });
+
+    document.getElementById('mobile').addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, '');
+      if (this.value.length > 0 && !/^[6-9]/.test(this.value)) {
+        this.value = '';
+      }
+      if (this.value.length > 10) this.value = this.value.slice(0, 10);
+    });
+
+    document.getElementById('email').addEventListener('input', function () {
+      this.value = this.value.replace(/[^A-Za-z0-9@._-]/g, '').replace(/^[@.]+/, '');
+    });
+
+    document.getElementById('message').addEventListener('input', function () {
+      if (this.value.length > 250) {
+        this.value = this.value.slice(0, 250);
+      }
+    });
+
+    function postInfo(event) {
+      event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const website = document.getElementById("website").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const missingFields = [];
+    if (!name) missingFields.push("Name");
+    if (!mobile) missingFields.push("Mobile Number");
+    if (!email) missingFields.push("Email");
+
+    if (missingFields.length > 0) {
+      swal({
+        icon: "error",
+        title: "Please fill all Required fields",
+        text: missingFields.join(', ') + " are required.",
+        button: "OK"
+      });
+      return;
     }
-    
-    return false;
-}
+
+    const data = new URLSearchParams();
+    data.append("name", name);
+    data.append("mobile", mobile);
+    data.append("email", email);
+    data.append("website", website);
+    data.append("message", message);
+
+    fetch("https://script.google.com/macros/s/AKfycbyEi4YXfKkaQWb3Zb-7YQC92H7pM03DjVgvI0nV0nb7X1-2JI1AsC_jHZ1YrkyRT1NN/exec", {
+      method: "POST",
+      body: data
+    })
+    .then(response => {
+      swal({
+        icon: "success",
+        title: "Submitted successfully!",
+        text: "Your information has been sent.",
+        button: "OK"
+      }).then(() => {
+        window.location.href = "thank-you.html?name=" + encodeURIComponent(name);
+      });
+      document.getElementById("contactForm").reset();
+    })
+    .catch(error => {
+      swal({
+        icon: "error",
+        title: "Submission failed",
+        text: "Something went wrong. Please try again.",
+        button: "OK"
+      });
+    });
+    }
   </script>
 
-   <!--
-    
-
-
-Version 1 on Feb 16, 2025, 2:53 PM
-
-Deployment ID
-AKfycbz13KcTyi86SJFGlexn_0NO-INzqr8tUVAEvDRy4NxE-QOwcIU2ewU5Ik2zUGc8kLeH
-
-Web app
-URL
-https://script.google.com/macros/s/AKfycbz13KcTyi86SJFGlexn_0NO-INzqr8tUVAEvDRy4NxE-QOwcIU2ewU5Ik2zUGc8kLeH/exec
-
-Library
-URL
-https://script.google.com/macros/library/d/1-mI8DDk7bqRJ6OCtkJ8YZDovso7BCyjPQOb2fnh8Xvvwcopcy83Qb8kj/1
-
--->
 
 </body>
 
