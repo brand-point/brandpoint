@@ -467,17 +467,21 @@ function postInfo() {
 
     // AJAX to App Script
     $.ajax({
-    url: "https://script.google.com/macros/s/AKfycbxEvUdqt7hrsdvS3ZhtJzkQo1Rh4qQiDW5raivW5dFNbZITanRVVOkFM9solwUbdnyM/exec",
+    url: "YOUR_SCRIPT_URL/exec",
     method: "POST",
-    mode: "no-cors",
-    data: formData,   // <-- no JSON.stringify
-    dataType: "json", // expect JSON back
+    data: {
+        "entry.1860950292": $('input[name="entry.1860950292"]').val(),
+        "entry.1287064486": $('input[name="entry.1287064486"]').val(),
+        "entry.235184857": $('input[name="entry.235184857"]').val(),
+        "entry.938750516": $('textarea[name="entry.938750516"]').val()
+    },
+    dataType: "json",
     success: function(response) {
         swal("Thanks for contacting us.",
              "One of our Team members will get in touch with you soon.",
              "success"
         ).then(function() {
-            window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(formData.name);
+            window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent($('input[name="entry.1860950292"]').val());
         });
         $('#contactForm')[0].reset();
     },
