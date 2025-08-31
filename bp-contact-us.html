@@ -477,25 +477,26 @@ function postInfo() {
     },
     dataType: "text",  // ✅ not json
     success: function(response) {
-        // Try to parse JSON if possible
-        try {
-            var res = JSON.parse(response);
-            if (res.result === "success") {
-                swal("Thanks for contacting us.",
-                     "One of our Team members will get in touch with you soon.",
-                     "success"
-                ).then(function() {
-                    var nameVal = $('input[name="entry.1860950292"]').val();
-console.log("Redirect name:", nameVal);
+  try {
+    var res = JSON.parse(response);
+    if (res.result === "success") {
+      var nameVal = $('input[name="entry.1860950292"]').val(); // get before reset
+      console.log("Redirect name:", nameVal);
 
-window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
-                });
-                $('#contactForm')[0].reset();
-            }
-        } catch(e) {
-            console.log("Non-JSON response:", response);
-        }
-    },
+      swal("Thanks for contacting us.",
+           "One of our Team members will get in touch with you soon.",
+           "success"
+      ).then(function() {
+          window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent(nameVal);
+      });
+
+      $('#contactForm')[0].reset(); // reset AFTER swal().then
+    }
+  } catch(e) {
+    console.log("Non-JSON response:", response);
+  }
+},
+
     error: function(err) {
         swal("Error", "Something went wrong. Please try again later.", "error");
     }
