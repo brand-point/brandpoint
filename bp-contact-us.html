@@ -469,6 +469,7 @@ function postInfo() {
     $.ajax({
         url: "https://script.google.com/macros/s/AKfycbzGqfMQdd1uaXaCT3GTs1RgFrFQYaKnMen3SpC6c5WTWv0_lztV3jY7-79NT2L5mfQ1/exec",
         method: "POST",
+        mode: "no-cors",
         data: JSON.stringify(formData),
         contentType: "application/json",
         success: function(response) {
