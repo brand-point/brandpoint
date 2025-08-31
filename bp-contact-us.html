@@ -475,20 +475,30 @@ function postInfo() {
         "entry.235184857": $('input[name="entry.235184857"]').val(),
         "entry.938750516": $('textarea[name="entry.938750516"]').val()
     },
-    dataType: "json",
+    dataType: "text",  // ✅ not json
     success: function(response) {
-        swal("Thanks for contacting us.",
-             "One of our Team members will get in touch with you soon.",
-             "success"
-        ).then(function() {
-            window.location.href = "https://brandpoint.in/thank-you.html?name=" + encodeURIComponent($('input[name="entry.1860950292"]').val());
-        });
-        $('#contactForm')[0].reset();
+        // Try to parse JSON if possible
+        try {
+            var res = JSON.parse(response);
+            if (res.result === "success") {
+                swal("Thanks for contacting us.",
+                     "One of our Team members will get in touch with you soon.",
+                     "success"
+                ).then(function() {
+                    window.location.href = "https://brandpoint.in/thank-you.html?name=" +
+                        encodeURIComponent($('input[name="entry.1860950292"]').val());
+                });
+                $('#contactForm')[0].reset();
+            }
+        } catch(e) {
+            console.log("Non-JSON response:", response);
+        }
     },
-    error: function() {
+    error: function(err) {
         swal("Error", "Something went wrong. Please try again later.", "error");
     }
 });
+
 
     return false;
 }
