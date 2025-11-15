@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Companies & Contacts Dashboard</title>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <style>
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --accent:#2563eb; --muted:#6b7280;
+    }
+    body{font-family:Inter,system-ui,Segoe UI,Arial; background:var(--bg); margin:0; padding:24px;}
+    .header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #ffffff;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+    select, input[type="search"], button{padding:10px 12px; border-radius:8px; border:1px solid #e6e9ef; font-size:14px;}
+    input[type="search"]{min-width:280px;}
+    .controls{margin-left:auto; display:flex; gap:8px; align-items:center;}
+    .card{background:var(--card); padding:16px; border-radius:12px; box-shadow:0 6px 18px rgba(15,23,42,0.06); overflow: visible; margin-bottom: 50px;}
+    table{width:100%; border-collapse:collapse; margin-top:12px;}
+    th, td{padding:10px 8px; border-bottom:1px solid #eef2f7; text-align:left; font-size:14px;}
+    th{cursor:pointer; position:relative; user-select:none; font-weight:600; color:#111827;}
+    th .sort-ind{font-size:12px; color:var(--muted); margin-left:6px;}
+    td.editable{background:#fff8d6; outline:1px dashed #f59e0b;}
+    .row-actions{display:flex; gap:6px;}
+    .btn{background:var(--accent); color:#fff; border:none; padding:6px 10px; border-radius:6px; cursor:pointer;}
+    .btn.secondary{background:#fff; color:var(--accent); border:1px solid #dde6ff;}
+    .small{padding:6px 8px; font-size:13px; border-radius:6px;}
+    .muted{color:var(--muted); font-size:13px;}
+    .pagination {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 97%;
+  background: #ffffff;
+  padding: 14px 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+    .pagination select{padding:6px 8px;}
+    .pagination button{padding:6px 10px; border:none; border-radius:6px; background:var(--accent); color:#fff; cursor:pointer;}
+    .pagination span{font-size:13px; color:#555;}
+  </style>
+</head>
+<body>
+
+  <div class="header">
+  <div style="display:flex; align-items:center; gap:24px;">
+    
+    <div style="display:flex; flex-direction:column;">
+      <label class="muted">Select View</label>
+      <select id="viewSelect">
+        <option value="Companies">Companies</option>
+        <option value="Contacts">Contacts</option>
+      </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column;">
+      <label class="muted">Search</label>
+      <input id="searchInput" type="search" placeholder="Search across all columns..." />
+    </div>
+
+  </div>
+
+  <div style="display:flex;align-items:center;gap:16px; position:relative;">
+
+  
+
+  <div id="profileMenuBtn" style="cursor:pointer; padding:6px 24px; border-radius:6px; background:#f1f5f9;"><img src="https://www.briotech.com/wp-content/uploads/2022/05/brio-black-1.svg" height="50">
+  </div>
+<!--
+  <button id="logoutBtn" style="background:#ef4444;border:none;padding:8px 14px;border-radius:6px;color:#fff;cursor:pointer;">
+    Logout
+  </button> -->
+
+  <!-- Dropdown Menu -->
+  <div id="profileDropdown" style="
+      display:none;
+      position:absolute;
+      top:55px;
+      right:0;
+      background:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      border-radius:8px;
+      width:160px;
+      overflow:hidden;
+      z-index:999;
+      padding: 10px 20px;
+      text-align: right;
+      width: 300px;
+  ">
+    <p style="display:block;border-bottom:1px solid #eee;text-decoration:none;color:#111;padding: 15px 0px; margin: 0px;"><strong>Brio Technologies Private Limited</strong><br>test@briotech.com</p>
+    
+    <a href="profile.html" style="display:block;border-bottom:1px solid #eee;text-decoration:none;color:#111;padding: 15px 0px;">View Profile</a>
+    <div style="display: inline-flex;">
+    <button id="logoutBtn" style="background:#ef4444;border:none;border-radius:6px;color:#fff;cursor:pointer;display:block;margin: 15px 0px 5px;padding: 10px 20px;">
+    Sign out
+  </button>
+</div>
+    
+  </div>
+
+</div>
+
+
+</div>
+
+<!--
+  <div class="header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="display: flex; flex-direction: column;">
+      <label class="muted">Select View</label>
+      <select id="viewSelect">
+        <option value="Companies">Companies</option>
+        <option value="Contacts">Contacts</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label class="muted">Search</label>
+      <input id="searchInput" type="search" placeholder="Search across all columns..." />
+    </div>
+  </div>
+
+  <div>
+    <img src="https://www.briotech.com/wp-content/uploads/2022/05/brio-black-1.svg" height="55" style="height: 55px;">
+  </div>
+</div> -->
+
+  <!--<div class="header">
+    <div style="display:flex;flex-direction:column">
+      <label class="muted">Select View</label>
+      <select id="viewSelect">
+        <option value="Companies">Companies</option>
+        <option value="Contacts">Contacts</option>
+      </select>
+    </div>
+
+    <div style="display:flex;flex-direction:column;margin-left:12px">
+      <label class="muted">Search</label>
+      <input id="searchInput" type="search" placeholder="Search across all columns..." />
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+      <img src="https://www.briotech.com/wp-content/uploads/2022/05/brio-black-1.svg" height="50" style="height: 50px; text-align: right;">
+    </div>
+  </div>
+  -->
+  <div class="card">
+    <div class="topline" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <div class="legend">List of: <span id="sheetLabel">Companies</span></div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button id="saveAll" class="btn small">Save All</button>
+        <span id="status" class="muted">Idle</span>
+      </div>
+    </div>
+
+    <div id="tableWrap">
+      <table id="dataTable"></table>
+    </div>
+
+    <div class="pagination">
+      <div>
+        Show 
+        <select id="rowsPerPage">
+          <option value="10">10</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="all">All</option>
+        </select>
+        rows
+      </div>
+      <div>
+        <button id="prevPage">Prev</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextPage">Next</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* Local Data */
+const sampleData = {
+  Companies: {
+    header: ["Company Name","Company Domain","Website URL","Company Phone Number","Company Email ID","HTTPS","Customer","SSL","Location","City","State","Country"],
+    rows: Array.from({length:75},(_,i)=>[
+      "Company "+(i+1),"domain"+(i+1)+".com","https://domain"+(i+1)+".com","+91-90000"+(i+1),"info@domain"+(i+1)+".com",
+      "Yes","Yes","Valid","City "+(i+1),"Metro","State","India"
+    ])
+  },
+  Contacts: {
+    header: ["Company Name","Company Domain","Website URL","Name","Mobile Number","Email ID"],
+    rows: Array.from({length:53},(_,i)=>[
+      "Company "+(i+1),"domain"+(i+1)+".com","https://domain"+(i+1)+".com","Person "+(i+1),
+      "+91-98"+(10000+i),"person"+(i+1)+"@domain.com"
+    ])
+  }
+};
+
+const table=document.getElementById("dataTable");
+const viewSelect=document.getElementById("viewSelect");
+const searchInput=document.getElementById("searchInput");
+const sheetLabel=document.getElementById("sheetLabel");
+const statusEl=document.getElementById("status");
+const rowsPerPage=document.getElementById("rowsPerPage");
+const prevPage=document.getElementById("prevPage");
+const nextPage=document.getElementById("nextPage");
+const pageInfo=document.getElementById("pageInfo");
+
+let currentView=viewSelect.value;
+let currentData={header:[],rows:[]};
+let currentPage=1;
+let sortState={col:-1,dir:1};
+
+function setStatus(msg,color){statusEl.textContent=msg;statusEl.style.color=color||"inherit";}
+
+function renderTable(){
+  const {header,rows}=sampleData[currentView];
+  const search=searchInput.value.trim().toLowerCase();
+  const filtered=rows.filter(r=>!search||r.some(c=>(c||"").toLowerCase().includes(search)));
+  const per=rowsPerPage.value==="all"?filtered.length:parseInt(rowsPerPage.value);
+  const totalPages=Math.max(1,Math.ceil(filtered.length/per));
+  if(currentPage>totalPages)currentPage=totalPages;
+  const start=(currentPage-1)*per;
+  const pageRows=rowsPerPage.value==="all"?filtered:filtered.slice(start,start+per);
+
+  currentData.header=header;
+  currentData.rows=filtered;
+
+  let thead="<thead><tr>";
+  header.forEach((h,i)=>{
+    const mark=sortState.col===i?(sortState.dir>0?" ▲":" ▼"):"";
+    thead+=`<th data-col="${i}">${h}<span class="sort-ind">${mark}</span></th>`;
+  });
+  thead+="<th>Actions</th></tr></thead>";
+
+  let tbody="<tbody>";
+  pageRows.forEach((r,rIdx)=>{
+    const idx=start+rIdx;
+    tbody+=`<tr data-row="${idx}">`;
+    r.forEach((cell,cIdx)=>{
+      tbody+=`<td data-col="${cIdx}">${cell}</td>`;
+    });
+    tbody+=`<td class="row-actions"><button class="small btn edit-row">Edit</button></td></tr>`;
+  });
+  tbody+="</tbody>";
+
+  table.innerHTML=thead+tbody;
+  sheetLabel.textContent=currentView;
+  pageInfo.textContent=`Page ${currentPage} of ${totalPages}`;
+  prevPage.disabled=currentPage===1;
+  nextPage.disabled=currentPage===totalPages;
+
+  table.querySelectorAll("th[data-col]").forEach(th=>{
+    th.onclick=()=>{
+      const col=parseInt(th.dataset.col);
+      sortState.col===col?sortState.dir*=-1:sortState={col,dir:1};
+      sampleData[currentView].rows.sort((a,b)=>{
+        const A=(a[col]||"").toLowerCase();
+        const B=(b[col]||"").toLowerCase();
+        return A<B?-1*sortState.dir:A>B?1*sortState.dir:0;
+      });
+      renderTable();
+    };
+  });
+  table.querySelectorAll(".edit-row").forEach(btn=>{
+    btn.onclick=()=>startEditRow(btn.closest("tr"));
+  });
+}
+
+function startEditRow(tr){
+  const idx=parseInt(tr.dataset.row);
+  tr.querySelectorAll("td[data-col]").forEach(td=>{
+    td.contentEditable="true";td.classList.add("editable");
+  });
+  const act=tr.querySelector(".row-actions");
+  act.innerHTML=`<button class="small btn save-row">Save</button><button class="small secondary btn cancel-row">Cancel</button>`;
+  act.querySelector(".save-row").onclick=()=>saveRow(tr,idx);
+  act.querySelector(".cancel-row").onclick=()=>cancelRow(tr,idx);
+}
+function saveRow(tr,idx){
+  const vals=Array.from(tr.querySelectorAll("td[data-col]")).map(td=>td.textContent.trim());
+  sampleData[currentView].rows[idx]=vals;
+  setStatus("Saved row "+(idx+1),"green");
+  renderTable();
+}
+function cancelRow(tr,idx){
+  const vals=sampleData[currentView].rows[idx];
+  tr.querySelectorAll("td[data-col]").forEach((td,i)=>{
+    td.textContent=vals[i];td.contentEditable="false";td.classList.remove("editable");
+  });
+  tr.querySelector(".row-actions").innerHTML=`<button class="small btn edit-row">Edit</button>`;
+  tr.querySelector(".edit-row").onclick=()=>startEditRow(tr);
+  setStatus("Cancelled edit","gray");
+}
+
+searchInput.oninput=()=>{currentPage=1;renderTable();};
+viewSelect.onchange=()=>{currentView=viewSelect.value;currentPage=1;renderTable();};
+rowsPerPage.onchange=()=>{currentPage=1;renderTable();};
+prevPage.onclick=()=>{if(currentPage>1){currentPage--;renderTable();}};
+nextPage.onclick=()=>{currentPage++;renderTable();};
+
+renderTable();
+</script>
+<script>
+  // Block dashboard access if not logged in
+  if (localStorage.getItem("brioLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+<script>
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    localStorage.removeItem("brioLoggedIn");
+    window.location.href = "login.html";
+  });
+</script>
+<script>
+  // Protect Dashboard
+  if (localStorage.getItem("brioLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+
+  // Logout Button
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    localStorage.removeItem("brioLoggedIn");
+    window.location.href = "login.html";
+  });
+
+  // Dropdown Toggle
+  const menuBtn = document.getElementById("profileMenuBtn");
+  const dropdown = document.getElementById("profileDropdown");
+  menuBtn.onclick = ()=> dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+
+  
+
+  // Close dropdown if clicking outside
+  document.addEventListener("click", (e)=>{
+    if(!menuBtn.contains(e.target) && !dropdown.contains(e.target)){
+      dropdown.style.display = "none";
+    }
+  });
+</script>
+
+
+</body>
+</html>

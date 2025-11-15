@@ -2724,3 +2724,137 @@ section,
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+
+/* Floating buttons container */
+  .floating-buttons {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    z-index: 9999;
+  }
+
+  /* Each button */
+  .float-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 0px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  /* Hover expansion */
+  .float-btn:hover {
+    width: 130px;
+    border-radius: 0px;
+    justify-content: right;
+    padding: 10px 15px 10px 15px;
+    margin: 0 auto;
+  }
+  a.float-btn:hover{color: #ffffff;}
+
+  .float-btn i {
+    font-size: 22px;
+    margin-right: 8px;
+  }
+
+  /* Colors */
+  .call-btn {
+    background-color: #1E56A0; /* Blue */
+    padding-left: 48px;
+  }
+  
+
+  .whatsapp-btn {
+    background-color: #25D366; /* WhatsApp Green */
+    padding-left: 48px;
+  }
+  .whatsapp-btn i{padding-left: 30px;}
+  /* Text on hover */
+  .btn-text {
+    color: white;
+    font-size: 15px;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s;
+  }
+
+  .float-btn:hover .btn-text {
+    opacity: 1;
+  }
+
+  /* Bottom WhatsApp circle */
+  .whatsapp-circle {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-circle:hover {
+    transform: scale(1.08);
+  }
+
+  /* WhatsApp Popup */
+  .whatsapp-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 280px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: none;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    z-index: 99999;
+  }
+
+  .whatsapp-popup-header {
+    background-color: #075E54;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  .whatsapp-popup-body {
+    background-color: #E5DDD5;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .whatsapp-popup-footer {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .whatsapp-popup-footer a {
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 25px;
+    font-weight: bold;
+  }

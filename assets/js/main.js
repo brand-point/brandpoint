@@ -219,3 +219,11 @@
   });
 
 })();
+
+
+const circle = document.getElementById("whatsappCircle");
+  const popup = document.getElementById("whatsappPopup");
+
+  circle.addEventListener("click", () => {
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+  });
