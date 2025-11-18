@@ -2810,6 +2810,7 @@ section,
     cursor: pointer;
     z-index: 9999;
     transition: transform 0.3s ease;
+    margin-bottom: 50px;
   }
 
   .whatsapp-circle:hover {

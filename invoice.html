@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proforma Invoice</title>
+  <style>
+    body{font-family:OpenSans,Helvetica,sans-serif;background:#f3f3f3;padding:20px}
+    .sheet{width:900px;margin:auto;background:#fff;padding:25px;border:1px solid #ccc}
+    .flex{display:flex;justify-content:space-between}
+    .logo-area img{height:55px}
+    .right-info{font-size:12px;line-height:1.4;font-weight: bold;}
+
+    .title-box{background:#e5e5e5;padding:10px 15px;width:260px;margin-top:20px;font-size:16px;font-weight:bold}
+    .proforma-invoice.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-box {
+  /*background: #e5e5e5; */
+  padding: 10px 15px;
+  width: auto;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+    .line{background:#dcdcdc;padding:8px 12px;font-weight:bold;margin-top:20px;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;margin-top: 30px;}
+    .section-title{background:#dcdcdc;padding:8px 12px;font-weight:bold;margin-top:20px;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc}
+
+    .addr-box{border:1px solid #dcdcdc;padding:10px;margin-top:10px;height:130px;font-size:13px}
+
+    table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
+    th,td{border:1px solid #dcdcdc;padding:6px}
+    th{background:#e5e5e5}
+    td.center{text-align:center}
+
+    .btn{padding:6px 10px;border-radius:4px;border:0;cursor:pointer;font-size:12px;font-weight:bold}
+    .add{background:#0bbd7d;color:#fff;margin-top:30px;padding: 10px;width: 100px;}
+    .remove{background:#ff4d4d;color:#fff}
+    .print{background:#000;color:#fff;margin-left:auto; width: 100px; padding: 10px;}
+
+    .totals{width:260px;margin-left:auto;margin-top:20px}
+    .totals th{background:#e5e5e5;text-align:left;width:140px}
+
+    @media print {.btn{display:none}body{background:white}.sheet{border:0}}
+    h2{margin-bottom: auto;}
+    .authorized-signatory{
+      width:180px;
+    }
+    .signature-box{
+  width:180px;
+  text-align:right;
+  float:right;
+  margin-top:20px;
+  display:none;
+  right: 30px;
+  position:relative;
+}
+.signature-box img.stamp{
+  width:100px;
+  opacity:0.85;
+}
+.signature-box img.sign{
+  position:absolute;
+  width:110px;
+  right:60px;
+  top:130px;
+}
+@media print{
+  #showSignature{display:none}
+}
+
+.signature-area{
+  width: 30%;
+  float: right;
+  position: relative;
+}
+.declaration{width: 70%;}
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="flex">
+    <div class="logo-area"><img src="https://www.briotech.com/wp-content/uploads/2022/05/brio-black-1.svg" alt="Brand Point"/>
+      <h2 style="font-size:16px;">Brio Technology Private Limited</h2>
+      <p style="font-size:12px;">Flat No. F-103, The Mehkris Apartments, 1-1-293/A,<br>
+      Ashok Nagar Main Road, Himayat Nagar, Hyderabad – 500020,<br>Telangana.</p>
+    </div>
+    <div class="right-info"> <!-- contenteditable -->
+      <br><br>
+      Website : www.brandpoint.in<br>
+      Email : team@brandpoint.in<br>
+      Email : the.brandpoint.team@gmail.com<br>
+      Mobile : 9381655363<br><br>
+      PAN : AMXPG7678M<br>
+      Udyam Reg. No : UDYAM-TS-02-0006729
+    </div>
+  </div>
+  <div class="line" contenteditable>Proforma Invoice</div>
+  <div class="proforma-invoice header-row">
+  <div class="meta-box">Invoice No : <span contenteditable="">BP/2025/11/18/01</span></div>
+  <div class="meta-box">Date : <input type="date"></div>
+</div>
+
+
+  <div class="section-title">Customer information</div>
+
+  <div class="flex" style="gap:20px">
+    <div style="flex:1">
+      <div style="font-weight:bold;margin-top:10px">Current Address :</div>
+      <div class="addr-box" contenteditable>SHRI ARUNAM INFRASTRUCTURES PRIVATE LIMITED<br><br>Plot No. 14/9/1, 9/2 & 9/3<br>Road No. 1, Habsiguda, H.No 12-13-99/1<br>Secunderabad<br>PinCode: 500061<br><br>GST: 36ABCCS6766K1Z0</div>
+    </div>
+    <div style="flex:1">
+      <div style="font-weight:bold;margin-top:10px">Billing Address :</div>
+      <div class="addr-box" contenteditable></div>
+    </div>
+  </div>
+
+  <label style="margin-top:10px;display:block"><input type="checkbox" id="addrSame"> Billing Address Same</label>
+
+  <table id="itemsTable">
+    <thead>
+      <tr>
+        <th style="width:6%">S.No.</th>
+        <th>Description</th>
+        <th style="width:12%">Qty</th>
+        <th style="width:18%">Rate</th>
+        <th style="width:16%">Amount</th>
+        <th style="width:8%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td contenteditable>Item description</td>
+        <td><input type="number" class="qty" value="1"></td>
+        <td><input type="number" class="rate" value="0"></td>
+        <td class="amount">0.00</td>
+        <td class="center"><button class="btn remove" onclick="removeRow(this)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="text-align:right;">
+  <button class="btn add" id="addRow">+ Add Item</button>
+  
+</div>
+  <table class="totals">
+    <tr><th>Subtotal</th><td id="subtotal">0.00</td></tr>
+    <tr><th>GST %</th><td><input type="number" id="taxPercent" value="0"></td></tr>
+    <tr><th>Total</th><td id="grandTotal">0.00</td></tr>
+  </table>
+  
+<div style="display: inline-flex;">
+
+  <div style="margin-top:30px" id="declaration" class="declaration">
+    <div style="font-size:14px;"><i><strong>Account Details</strong><br><strong>Name : </strong> Balasubrahmanyam Gummidi<br>
+                         <strong>Account Number : </strong> 112001509875<br>
+                         <strong>IFSC Code : </strong> ICIC0001120<br>
+                         <strong>Branch : </strong> Kavuri Hills<br>
+                         <strong>Bank : </strong> ICICI Bank</i><br>
+                      </div>
+    <div style="font-weight:bold;font-size:14px;margin-top:20px">Declaration</div>
+
+    <div style="font-size:12px;margin-top:6px">* This invoice has been issued by a micro enterprise exempt from GST registration under Section 22 of the CGST Act. Therefore, GST is not applicable.</div>
+    <div style="font-size:12px;margin-top:6px">* This invoice is system-generated.</div>
+    
+
+
+  </div>
+ 
+
+  
+
+
+<div id="signature-area" class="signature-area" style="margin-top:30px; text-align:center;">
+    <!-- Authorized Signatory -->
+    <label style="font-size:14px;">
+        <input type="checkbox" id="showSignature"> Authorized Signatory
+    </label>
+    <!-- Signature Images (hidden until checkbox is checked) -->
+    <div id="signatureBox" class="signature-box" style="display:none; margin-bottom:10px;">
+        <img src="assets/img/bp-stamp-blue.png" class="stamp" style="width:130px; opacity:0.9;">
+        <img src="assets/img/sign-blue.png" class="sign" style="width:120px; margin-top:-45px;">
+    </div>
+    <p style="margin:5px 0 0 0;">Balasubrahmanyam</p>
+    <div style="font-weight:bold">(Brand Point)</div>
+
+</div>
+</div>
+<div style="text-align:center; margin-top: 50px;">
+ 
+  <button class="btn print" onclick="window.print()">Print</button>
+</div>
+</div>
+
+<script>
+function fmt(v){return Number(v||0).toFixed(2)}
+
+function recalc(){
+  const rows=document.querySelectorAll('#itemsTable tbody tr');
+  let subtotal=0;
+  rows.forEach((r,i)=>{
+    const q=Number(r.querySelector('.qty').value||0);
+    const rt=Number(r.querySelector('.rate').value||0);
+    const amt=q*rt;
+    r.querySelector('.amount').textContent=fmt(amt);
+    subtotal+=amt;
+    r.querySelector('td').textContent=i+1;
+  });
+  document.getElementById('subtotal').textContent=fmt(subtotal);
+  const tax=Number(document.getElementById('taxPercent').value||0);
+  document.getElementById('grandTotal').textContent=fmt(subtotal+(subtotal*(tax/100)));
+}
+
+/* -------------------------------
+   ADD ITEM ROW (fixed)
+--------------------------------*/
+document.getElementById('addRow').onclick=()=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="center">0</td>
+    <td contenteditable>New item</td>
+    <td><input type="number" class="qty" value="1"></td>
+    <td><input type="number" class="rate" value="0"></td>
+    <td class="amount">0.00</td>
+    <td class="center"><button class="btn remove" onclick="removeRow(this)">X</button></td>`;
+
+  document.querySelector('#itemsTable tbody').appendChild(tr);
+
+  tr.querySelectorAll('input').forEach(inp=>inp.oninput=recalc);
+  recalc();
+};
+
+/* -------------------------------
+   REMOVE ROW
+--------------------------------*/
+function removeRow(btn){
+  const tr=btn.closest('tr');
+  const body=document.querySelector('#itemsTable tbody');
+  if(body.children.length>1) tr.remove();
+  else{
+    tr.querySelector('[contenteditable]').textContent='Item description';
+    tr.querySelector('.qty').value=1;
+    tr.querySelector('.rate').value=0;
+  }
+  recalc();
+}
+
+/* -------------------------------
+   AUTO FILL BILLING ADDRESS
+--------------------------------*/
+const currentAddr=document.querySelectorAll('.addr-box')[0];
+const billingAddr=document.querySelectorAll('.addr-box')[1];
+const addrSame=document.getElementById('addrSame');
+
+if(addrSame){
+  addrSame.onchange=()=>{
+    if(addrSame.checked){
+      billingAddr.innerHTML=currentAddr.innerHTML;
+      billingAddr.setAttribute('contenteditable','false');
+    } else {
+      billingAddr.innerHTML="";
+      billingAddr.setAttribute('contenteditable','true');
+    }
+  };
+}
+
+/* -------------------------------
+   INITIAL CALC
+--------------------------------*/
+document.querySelectorAll('.qty,.rate').forEach(inp=>inp.oninput=recalc);
+document.getElementById('taxPercent').oninput=recalc;
+recalc();
+
+document.getElementById('showSignature').onchange = () => {
+    document.getElementById('signatureBox').style.display =
+        document.getElementById('showSignature').checked ? "block" : "none";
+};
+
+</script>
+
+</body>
+</html>
