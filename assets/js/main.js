@@ -220,4 +220,10 @@
 
 })();
 
+const circle = document.getElementById("whatsappCircle");
+  const wa_popup = document.getElementById("whatsappPopup");
+
+  circle.addEventListener("click", () => {
+    wa_popup.style.display = wa_popup.style.display === "block" ? "none" : "block";
+  });
 
