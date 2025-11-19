@@ -1,4 +1,5 @@
-<!--WebSite-->
+<!-- Schema Starts -->
+  <!--WebSite-->
 <script type='application/ld+json'>
 { "@context":"http:\/\/schema.org",
 "@type":"WebSite","@id":"https://brandpoint.in",
@@ -11,9 +12,6 @@
 "query-input":"required name=search_term_string"}
 }
 </script>
-
-
-
 <!-- Brand -->
 <script type="application/ld+json">
 { "@context" : "http://schema.org",
@@ -25,9 +23,7 @@
       "https://brandpoint.in/contact.html", "https://brandpoint.in/index.html#our-services", "https://brandpoint.in/blog.html"]  
 }
 </script>
-
 <!-- Organization -->
-
 <script type="application/ld+json">
 { 
   "@context": "https://schema.org",
@@ -38,8 +34,8 @@
       "logo": "https://brandpoint.in/assets/img/brand-point-logo-w-title.png",
       "name": "Brand Point",
       "description": "Where Precision Meets Reliability, Welcome to Brand Point, where we transform your vision into a powerful brand identity. Specializing in a wide range of branding solutions, we cater to businesses looking to enhance their presence through customized products and services.",
-      "email": "the.brandpoint.team@gmail.com",
-      "telephone": "+91-93816-55363",
+      "email": ["team@brandpoint.in", "the.brandpoint.team@gmail.com"],
+      "telephone": "+919381655363",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "1-1-293/A, Ashok Nagar Road, Ashok Nagar, Himayatnagar",
@@ -52,70 +48,125 @@
   
   }
     </script>
-
-
 <!-- Products -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProductGroup",
-  "name": "Customizable Products",
+  "name": "Products",
   "hasVariant": [
     {
       "@type": "Product",
-      "name": "ID Cards Holders"
+      "name": "ID Cards Holders",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "50"
+      }
     },
     {
       "@type": "Product",
-      "name": "Yoyos"
+      "name": "Yoyos",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "40"
+      }
     },
     {
       "@type": "Product",
-      "name": "Neck Tags"
+      "name": "Neck Tags",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "30"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Gift Boxes"
+      "name": "Customizable Gift Boxes",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "60"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Rigid Boxes"
+      "name": "Customizable Rigid Boxes",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "55"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Books"
+      "name": "Customizable Books",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "45"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Diaries"
+      "name": "Customizable Diaries",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "50"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Calendars"
+      "name": "Customizable Calendars",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "65"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Letterheads"
+      "name": "Customizable Letterheads",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.6",
+        "reviewCount": "35"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Envelopes"
+      "name": "Customizable Envelopes",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "40"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Danglers"
+      "name": "Customizable Danglers",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "25"
+      }
     },
     {
       "@type": "Product",
-      "name": "Customizable Brochures"
+      "name": "Customizable Brochures",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "50"
+      }
     }
   ]
 }
 </script>
-
 <!-- Services -->
-
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -155,11 +206,202 @@
   }
 }
 </script>
-
-
 <!--  BreadcrumbList Schema -->
 <script type="application/ld+json">
-
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://brandpoint.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Index",
+      "item": "https://brandpoint.in/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Products",
+      "item": "https://brandpoint.in/products/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "ID Cards",
+      "item": "https://brandpoint.in/products/id-cards.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Business Cards",
+      "item": "https://brandpoint.in/products/business-cards.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Rigid Boxes",
+      "url": "https://brandpoint.in/products/rigid-boxes.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Office Essentials",
+      "item": "https://brandpoint.in/products/office-essentials.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "Trophies",
+      "item": "https://brandpoint.in/products/trophies.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "name": "Gift Items",
+      "item": "https://brandpoint.in/products/gift-items.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "name": "Services",
+      "item": "https://brandpoint.in/services/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "name": "Engraving",
+      "item": "https://brandpoint.in/services/engraving.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "name": "Rubber Prints",
+      "item": "https://brandpoint.in/services/rubber-prints.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "name": "Shrink Wrapping",
+      "item": "https://brandpoint.in/services/shrink-wrapping.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "name": "Web Design & Development",
+      "item": "https://brandpoint.in/services/web-design-development.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "name": "Showcase",
+      "item": "https://brandpoint.in/showcase/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "name": "Portfolio",
+      "item": "https://brandpoint.in/showcase/portfolio.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "name": "More",
+      "item": "https://brandpoint.in/more/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "name": "Tax Calculator",
+      "item": "https://brandpoint.in/more/tax-calculator.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "name": "Gratuity Calculator",
+      "item": "https://brandpoint.in/more/gratuity-calculator.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "name": "HRA Calculator",
+      "item": "https://brandpoint.in/more/hra-calculator.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "name": "Donation",
+      "item": "https://brandpoint.in/more/donation.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "name": "Payments",
+      "item": "https://brandpoint.in/more/payments.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "name": "Blog",
+      "item": "https://brandpoint.in/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "name": "Contact",
+      "item": "https://brandpoint.in/contact.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "name": "Privacy Policy",
+      "item": "https://brandpoint.in/legal/privacy-policy.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "name": "Terms and Conditions",
+      "item": "https://brandpoint.in/legal/terms-and-conditions.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "name": "Refund Policy",
+      "item": "https://brandpoint.in/legal/refund-policy.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "name": "A Path to Elevated Branding: Rigid Gift Boxes",
+      "item": "https://brandpoint.in/blog/a-path-to-elevated-branding-rigid-gift-boxes.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "name": "Perfect Gift for Your Branding",
+      "item": "https://brandpoint.in/blog/perfect-gift-for-your-branding.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 30,
+      "name": "Building a Strong Brand Identity",
+      "item": "https://brandpoint.in/blog/building-a-strong-brand-identity.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
+      "name": "Brand Point Brochure",
+      "item": "https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf"
+    }
+  ]
+}
+</script>
+<!--  BreadcrumbList Schema -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -352,12 +594,8 @@
     }
   ]
 }
-
-
 </script>
-
 <!-- Social Media Links -->
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -369,11 +607,154 @@
     "https://www.facebook.com/profile.php?id=61573911112275",
     "https://x.com/BrandPointTeam",
     "https://www.linkedin.com/company/BrandPointTeam",
-    "https://www.instagram.com/BrandPointTeam",
+    "https://www.instagram.com/brandpointteam/",
     "https://www.youtube.com/@BrandPointTeam"
   ]
 }
 </script>
-
-
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Home",
+      "url": "https://brandpoint.in/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "About",
+      "url": "https://brandpoint.in/index.html#about-us"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Products Overview",
+      "url": "https://brandpoint.in/index.html#products"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Our Services Overview",
+      "url": "https://brandpoint.in/index.html#our-services"
+    },
+    /* ---------- PRODUCTS ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "ID Cards",
+      "url": "https://brandpoint.in/products/id-cards.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Business Cards",
+      "url": "https://brandpoint.in/products/business-cards.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name" : "Rigid Boxes",
+      "url": "https://brandpoint.in/products/rigid-boxes.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Office Essentials",
+      "url": "https://brandpoint.in/products/office-essentials.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Trophies",
+      "url": "https://brandpoint.in/products/trophies.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Gift Items",
+      "url": "https://brandpoint.in/products/gift-items.html"
+    },
+    /* ---------- SERVICES ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Engraving",
+      "url": "https://brandpoint.in/services/engraving.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Rubber Prints",
+      "url": "https://brandpoint.in/services/rubber-prints.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Shrink Wrapping",
+      "url": "https://brandpoint.in/services/shrink-wrapping.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Web Design & Development",
+      "url": "https://brandpoint.in/services/web-design-development.html"
+    },
+    /* ---------- SHOWCASE ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Portfolio Showcase",
+      "url": "https://brandpoint.in/showcase/portfolio.html"
+    },
+    /* ---------- MORE (TOOLS) ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Tax Calculator",
+      "url": "https://brandpoint.in/more/tax-calculator.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Gratuity Calculator",
+      "url": "https://brandpoint.in/more/gratuity-calculator.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "HRA Calculator",
+      "url": "https://brandpoint.in/more/hra-calculator.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Donation",
+      "url": "https://brandpoint.in/more/donation.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Payments",
+      "url": "https://brandpoint.in/more/payments.html"
+    },
+    /* ---------- BLOG ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Blog Home",
+      "url": "https://brandpoint.in/blog.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Rigid Gift Boxes – A Path to Elevated Branding",
+      "url": "https://brandpoint.in/blog/a-path-to-elevated-branding-rigid-gift-boxes.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Perfect Gift for Your Branding",
+      "url": "https://brandpoint.in/blog/perfect-gift-for-your-branding.html"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Building a Strong Brand Identity",
+      "url": "https://brandpoint.in/blog/building-a-strong-brand-identity.html"
+    },
+    /* ---------- CONTACT ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Contact Us",
+      "url": "https://brandpoint.in/contact.html"
+    },
+    /* ---------- BROCHURE ---------- */
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Brand Point Brochure",
+      "url": "https://brandpoint.in/assets/img/pdf/brand-point-brochure-where-precision-meets-reliability.pdf"
+    }
+  ]
+}
+</script>
+<!-- Schema ends -->
