@@ -2726,136 +2726,69 @@ section,
 }
 
 
-/* Floating buttons container */
+/* Floating Buttons Container */
+.floating-buttons {
+  position: fixed;
+  right: 20px;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+/* General Button Style */
+.float-btn {
+  background: white;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Hover effect */
+.float-btn:hover {
+  transform: translateX(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Icons */
+.float-btn i {
+  font-size: 22px;
+}
+
+/* Individual Colors */
+.call-btn {
+  background: #ffd700;
+  border-color: #e6c200;
+}
+
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+  border-color: #20b857;
+}
+
+.email-btn {
+  background: #4285f4;
+  color: white;
+  border-color: #2e6fe0;
+}
+
+/* Extra Responsiveness */
+@media (max-width: 768px) {
   .floating-buttons {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-    z-index: 9999;
+    right: 10px;
   }
-
-  /* Each button */
   .float-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 0px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
-
-  /* Hover expansion */
-  .float-btn:hover {
-    width: 130px;
-    border-radius: 0px;
-    justify-content: right;
-    padding: 10px 15px 10px 15px;
-    margin: 0 auto;
-  }
-  a.float-btn:hover{color: #ffffff;}
-
-  .float-btn i {
-    font-size: 22px;
-    margin-right: 8px;
-  }
-
-  /* Colors */
-  .call-btn {
-    background-color: #1E56A0; /* Blue */
-    padding-left: 48px;
-  }
-  
-
-  .whatsapp-btn {
-    background-color: #25D366; /* WhatsApp Green */
-    padding-left: 48px;
-  }
-  .whatsapp-btn i{padding-left: 30px;}
-  /* Text on hover */
-  .btn-text {
-    color: white;
-    font-size: 15px;
-    opacity: 0;
-    white-space: nowrap;
-    transition: opacity 0.3s;
-  }
-
-  .float-btn:hover .btn-text {
-    opacity: 1;
-  }
-
-  /* Bottom WhatsApp circle */
-  .whatsapp-circle {
-    position: fixed;
-    bottom: 25px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    width: 58px;
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    cursor: pointer;
-    z-index: 9999;
-    transition: transform 0.3s ease;
-    margin-bottom: 50px;
-  }
-
-  .whatsapp-circle:hover {
-    transform: scale(1.08);
-  }
-
-  /* WhatsApp Popup */
-  .whatsapp-popup {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 280px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    display: none;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    z-index: 99999;
-  }
-
-  .whatsapp-popup-header {
-    background-color: #075E54;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-  }
-
-  .whatsapp-popup-body {
-    background-color: #E5DDD5;
-    padding: 15px;
+    padding: 8px 12px;
     font-size: 14px;
   }
-
-  .whatsapp-popup-footer {
-    background-color: white;
-    text-align: center;
-    padding: 10px;
-  }
-
-  .whatsapp-popup-footer a {
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 25px;
-    font-weight: bold;
-  }
+}
