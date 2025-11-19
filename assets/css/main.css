@@ -2726,69 +2726,61 @@ section,
 }
 
 
-/* Floating Buttons Container */
+/* CONTAINER */
 .floating-buttons {
   position: fixed;
-  right: 20px;
-  top: 40%;
+  right: 15px;
+  bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   z-index: 9999;
 }
 
-/* General Button Style */
+/* BASE BUTTON STYLE */
 .float-btn {
-  background: white;
-  color: #333;
-  padding: 10px 15px;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 8px;
+  transition: 0.2s ease;
 }
 
-/* Hover effect */
-.float-btn:hover {
-  transform: translateX(-6px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-/* Icons */
+/* ICON SIZE */
 .float-btn i {
-  font-size: 22px;
+  font-size: 20px;
 }
 
-/* Individual Colors */
+/* PHONE BUTTON (square icon) */
 .call-btn {
-  background: #ffd700;
-  border-color: #e6c200;
+  background: #0d4a96;   /* your screenshot blue */
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;     /* slightly rounded, like image */
+  padding: 0;
 }
 
+/* WHATSAPP BUTTON (rectangle with text) */
 .whatsapp-btn {
   background: #25D366;
-  color: white;
-  border-color: #20b857;
+  padding: 10px 18px;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
+/* EMAIL BUTTON (optional – match style) */
 .email-btn {
   background: #4285f4;
-  color: white;
-  border-color: #2e6fe0;
+  padding: 10px 18px;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
-/* Extra Responsiveness */
-@media (max-width: 768px) {
-  .floating-buttons {
-    right: 10px;
-  }
-  .float-btn {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
+/* Hover effect (simple) */
+.float-btn:hover {
+  opacity: 0.85;
 }
