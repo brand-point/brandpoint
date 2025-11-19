@@ -101,7 +101,7 @@
   </div>
   <div class="line" contenteditable>Proforma Invoice</div>
   <div class="proforma-invoice header-row">
-  <div class="meta-box">Invoice No : <span contenteditable="">BP/2025/11/18/01</span></div>
+  <div class="meta-box">Invoice No : <span id="invoiceNumber" contenteditable></span> </div>
   <div class="meta-box">Date : <input type="date"></div>
 </div>
 
@@ -279,6 +279,20 @@ document.getElementById('showSignature').onchange = () => {
         document.getElementById('showSignature').checked ? "block" : "none";
 };
 
+</script>
+
+<script>
+  function generateInvoiceNumber(sequence = 1) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const seq = String(sequence).padStart(4, "0"); // 0001, 0002, 0003...
+
+    return `BP/${year}/${month}/${seq}`;
+  }
+
+  // Set invoice number on page load
+  document.getElementById("invoiceNumber").textContent = generateInvoiceNumber(1);
 </script>
 
 </body>
