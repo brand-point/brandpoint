@@ -29,7 +29,7 @@
     .line{background:#dcdcdc;padding:8px 12px;font-weight:bold;margin-top:20px;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;margin-top: 30px;}
     .section-title{background:#dcdcdc;padding:8px 12px;font-weight:bold;margin-top:20px;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc}
 
-    .addr-box{border:1px solid #dcdcdc;padding:10px;margin-top:10px;height:130px;font-size:13px}
+    .addr-box{border:1px solid #dcdcdc;padding:10px;margin-top:10px;min-height:100px;font-size:13px; line-height: 1.5;}
 
     table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
     th,td{border:1px solid #dcdcdc;padding:6px}
@@ -78,6 +78,47 @@
   position: relative;
 }
 .declaration{width: 70%;}
+.right-info .row {
+  display: grid;
+  grid-template-columns: 100px 10px auto;
+  align-items: start;
+}
+
+.right-info a {
+  color: #000;
+  text-decoration: none;
+}
+.account-details .row {
+  display: grid;
+  grid-template-columns: 130px 10px auto;
+  line-height: 1.4;
+}
+
+.account-details .label {
+  font-weight: bold;
+}
+
+.account-details .colon {
+  text-align: center;
+}
+.qr-only {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.qr-item img {
+  width: 150px;
+  height: 150px;
+}
+
+.qr-text {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -86,18 +127,61 @@
   <div class="flex">
     <div class="logo-area"><img src="assets/img/brand-point-logo-w-title.png" alt="Brand Point" height="65"/>
       
-      <p style="font-size:12px;"><strong>Brand Point : </strong>Flat No. F-103, The Mehkris Apartments, 1-1-293/A,<br>
+      <p style="font-size:12px;line-height: 1.5;"><strong>Brand Point</strong><br>Flat No. F-103, The Mehkris Apartments, 1-1-293/A,<br>
       Ashok Nagar Main Road, Himayat Nagar, Hyderabad – 500020,<br>Telangana.</p>
     </div>
-    <div class="right-info"> <!-- contenteditable -->
+    <div class="right-info">
       <br><br>
-      Website : www.brandpoint.in<br>
-      Email : team@brandpoint.in<br>
-      Email : the.brandpoint.team@gmail.com<br>
-      Mobile : 9381655363<br><br>
-      PAN : AMXPG7678M<br>
-      Udyam Reg. No : UDYAM-TS-02-0006729
-    </div>
+  <div class="row">
+    <span class="label">Website</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="https://www.brandpoint.in" target="_blank">www.brandpoint.in</a>
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="label">Official Email</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="mailto:team@brandpoint.in">team@brandpoint.in</a>
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="label">Personal Email</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="mailto:the.brandpoint.team@gmail.com">the.brandpoint.team@gmail.com</a>
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="label">Mobile Number</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="tel:+919381655363">93816 55363</a>
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="label">PAN</span>
+    <span class="colon">:</span>
+    <span class="value">AMXPG7678M</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Udyam Reg. No</span>
+    <span class="colon">:</span>
+    <span class="value">UDYAM-TS-02-0006729</span>
+  </div>
+
+  <div class="row">
+    <span class="label">GSTIN</span>
+    <span class="colon">:</span>
+    <span class="value">-</span>
+  </div>
+</div>
   </div>
   <div class="line" contenteditable>Proforma Invoice</div>
   <div class="proforma-invoice header-row">
@@ -111,7 +195,7 @@
   <div class="flex" style="gap:20px">
     <div style="flex:1">
       <div style="font-weight:bold;margin-top:10px">Current Address :</div>
-      <div class="addr-box" contenteditable>SHRI ARUNAM INFRASTRUCTURES PRIVATE LIMITED<br><br>Plot No. 14/9/1, 9/2 & 9/3<br>Road No. 1, Habsiguda, H.No 12-13-99/1<br>Secunderabad<br>PinCode: 500061<br><br>GST: 36ABCCS6766K1Z0</div>
+      <div class="addr-box" contenteditable><strong>Brand Point</strong><br>Flat No. F-103, The Mehkris Apartments, 1-1-293/A,<br>Ashok Nagar Main Road, Himayat Nagar,<br>Hyderabad, Telangana, India.<br>Postal Code: 500 020<br></div>
     </div>
     <div style="flex:1">
       <div style="font-weight:bold;margin-top:10px">Billing Address :</div>
@@ -124,11 +208,11 @@
   <table id="itemsTable">
     <thead>
       <tr>
-        <th style="width:6%">S.No.</th>
-        <th>Description</th>
-        <th style="width:12%">Qty</th>
-        <th style="width:18%">Rate</th>
-        <th style="width:16%">Amount</th>
+        <th style="width:5%">S.No.</th>
+        <th style="width:35%">Description</th>
+        <th style="width:10%">Qty</th>
+        <th style="width:10%">Rate</th>
+        <th style="width:15%">Amount</th>
         <th style="width:8%"></th>
       </tr>
     </thead>
@@ -136,9 +220,9 @@
       <tr>
         <td class="center">1</td>
         <td contenteditable>Item description</td>
-        <td><input type="number" class="qty" value="1"></td>
-        <td><input type="number" class="rate" value="0"></td>
-        <td class="amount">0.00</td>
+        <td><input type="number" class="qty" value="1" style="width:90%; text-align: right;"></td>
+        <td><input type="number" class="rate" value="0" style="width:90%; text-align: right;"></td>
+        <td class="amount" style="text-align:right;">0.00</td>
         <td class="center"><button class="btn remove" onclick="removeRow(this)">X</button></td>
       </tr>
     </tbody>
@@ -156,25 +240,45 @@
 <div style="display: inline-flex;">
 
   <div style="margin-top:30px" id="declaration" class="declaration">
-    <div style="font-size:14px;"><i><strong>Account Details</strong><br><strong>Name : </strong> Balasubrahmanyam Gummidi<br>
-                         <strong>Account Number : </strong> 112001509875<br>
-                         <strong>IFSC Code : </strong> ICIC0001120<br>
-                         <strong>Branch : </strong> Kavuri Hills<br>
-                         <strong>Bank : </strong> ICICI Bank</i><br>
-                      </div>
+    <div class="account-details" style="font-size:14px;">
+  <i><strong>Account Details</strong></i><br><br>
+
+  <div class="row">
+    <span class="label">Name</span>
+    <span class="colon">:</span>
+    <span class="value">Balasubrahmanyam Gummidi</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Account Number</span>
+    <span class="colon">:</span>
+    <span class="value">112001509875</span>
+  </div>
+
+  <div class="row">
+    <span class="label">IFSC Code</span>
+    <span class="colon">:</span>
+    <span class="value">ICIC0001120</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Branch</span>
+    <span class="colon">:</span>
+    <span class="value">Kavuri Hills</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Bank</span>
+    <span class="colon">:</span>
+    <span class="value">ICICI Bank</span>
+  </div>
+</div><br>
     <div style="font-weight:bold;font-size:14px;margin-top:20px">Declaration</div>
 
     <div style="font-size:12px;margin-top:6px">* This invoice has been issued by a micro enterprise exempt from GST registration under Section 22 of the CGST Act. Therefore, GST is not applicable.</div>
+    <div style="font-size:12px;margin-top:6px">* 50% of the total order value is payable as an advance at the time of order confirmation. The balance amount is payable upon completion/delivery of the order.</div>
     <div style="font-size:12px;margin-top:6px">* This invoice is system-generated.</div>
-    
-
-
   </div>
- 
-
-  
-
-
 <div id="signature-area" class="signature-area" style="margin-top:30px; text-align:center;">
     <!-- Authorized Signatory -->
     <label style="font-size:14px;">
@@ -189,6 +293,29 @@
     <div style="font-weight:bold">(Brand Point)</div>
 
 </div>
+</div>
+<div class="qr-only">
+
+  <div class="qr-item">
+    <img src="assets/img/more/contact-details.jpg" alt="Contact Details QR Code">
+    <div class="qr-text">Contact Details</div>
+  </div>
+
+  <div class="qr-item">
+    <img src="assets/img/more/phone-pe.jpg" alt="PhonePe QR Code">
+    <div class="qr-text">Phone Pe</div>
+  </div>
+
+  <div class="qr-item">
+    <img src="assets/img/more/google-pay.jpg" alt="Google Pay QR Code">
+    <div class="qr-text">Google Pay</div>
+  </div>
+
+  <div class="qr-item">
+    <img src="assets/img/more/paytm.jpg" alt="PayTM QR Code">
+    <div class="qr-text">Paytm</div>
+  </div>
+
 </div>
 <div style="text-align:center; margin-top: 50px;">
  
@@ -222,9 +349,9 @@ document.getElementById('addRow').onclick=()=>{
   const tr=document.createElement('tr');
   tr.innerHTML=`<td class="center">0</td>
     <td contenteditable>New item</td>
-    <td><input type="number" class="qty" value="1"></td>
-    <td><input type="number" class="rate" value="0"></td>
-    <td class="amount">0.00</td>
+    <td><input type="number" class="qty" value="1" style="width:90%; text-align: right;"></td>
+    <td><input type="number" class="rate" value="0" style="width:90%; text-align: right;"></td>
+    <td class="amount" style="text-align:right;">0.00</td>
     <td class="center"><button class="btn remove" onclick="removeRow(this)">X</button></td>`;
 
   document.querySelector('#itemsTable tbody').appendChild(tr);
