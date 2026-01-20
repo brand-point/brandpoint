@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proforma Invoice</title>
+  <style>
+    body{font-family:OpenSans,Helvetica,sans-serif;background:#ffffff;padding:20px}
+    .sheet{width:900px;margin:auto;background:#e8f0fe;padding:50px;border:0px solid #ccc}
+    .flex{display:flex;justify-content:space-between}
+    .logo-area img{height:65px}
+    .right-info{font-size:12px;line-height:1.4;font-weight: bold;}
+
+    .title-box{background:#e5e5e5;padding:10px 15px;width:260px;margin-top:20px;font-size:16px;font-weight:bold}
+    .proforma-invoice.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-box {
+  /*background: #e5e5e5; */
+  padding: 10px 15px;
+  width: auto;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+    .line{background:#dcdcdc;padding:8px 12px;font-weight:bold;margin-top:20px;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;margin-top: 30px;}
+    .section-title{background:#dcdcdc;padding:8px 12px;font-weight:bold;margin-top:20px;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc}
+
+    .addr-box{border:1px solid #dcdcdc;padding:10px;margin-top:10px;min-height:100px;font-size:13px; line-height: 1.5;}
+
+    table{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
+    th,td{border:1px solid #dcdcdc;padding:6px}
+    th{background:#e5e5e5}
+    td.center{text-align:center}
+
+    .btn{padding:6px 10px;border-radius:4px;border:0;cursor:pointer;font-size:12px;font-weight:bold}
+    .add{background:#0bbd7d;color:#fff;margin-top:30px;padding: 10px;width: 100px;}
+    .remove{background:#ff4d4d;color:#fff}
+    .print{background:#000;color:#fff;margin-left:auto; width: 100px; padding: 10px;}
+
+    .totals{width:260px;margin-left:auto;margin-top:20px}
+    .totals th{background:#e5e5e5;text-align:left;width:140px}
+
+    @media print {.btn{display:none}body{background:white}.sheet{border:0}}
+    h2{margin-bottom: auto;}
+    .authorized-signatory{
+      width:180px;
+    }
+    .signature-box{
+  width:180px;
+  text-align:right;
+  float:right;
+  margin-top:20px;
+  display:none;
+  right: 30px;
+  position:relative;
+}
+.signature-box img.stamp{
+  width:100px;
+  opacity:0.85;
+}
+.signature-box img.sign{
+  position:absolute;
+  width:110px;
+  right:60px;
+  top:130px;
+}
+@media print{
+  #showSignature{display:none}
+}
+
+.signature-area{
+  width: 30%;
+  float: right;
+  position: relative;
+}
+.declaration{width: 70%;}
+.right-info .row {
+  display: grid;
+  grid-template-columns: 100px 10px auto;
+  align-items: start;
+}
+
+.right-info a {
+  color: #000;
+  text-decoration: none;
+}
+.account-details .row {
+  display: grid;
+  grid-template-columns: 130px 10px auto;
+  line-height: 1.4;
+}
+
+.account-details .label {
+  font-weight: bold;
+}
+
+.account-details .colon {
+  text-align: center;
+}
+.qr-only {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.qr-item img {
+  width: 150px;
+  height: 150px;
+}
+
+.qr-text {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="flex">
+    <div class="logo-area"><img src="assets/img/sbg-falcon-logo.png" alt="SBG Falcon" height="65"/>
+      
+      <p style="font-size:24px;line-height: 1.5;margin-bottom: 0px;margin-top: 0px;"><strong>SBG Falcon</strong></p>
+      <p style="font-size:12px;line-height: 1.5;margin-top: 0px;">Flat No. F-202,Santhi Nilayam, Near MNR School of Excellence<br>
+      Gudimalkapur Rd, Mehdipatnam, Hyderabad – 500020, Telangana.</p>
+    </div>
+    <div class="right-info">
+      <br><br>
+  <!--<div class="row">
+    <span class="label">Website</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="https://www.brandpoint.in" target="_blank">www.brandpoint.in</a>
+    </span>
+  </div> 
+
+  <div class="row">
+    <span class="label">Official Email</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="mailto:team@brandpoint.in">team@brandpoint.in</a>
+    </span>
+  </div> -->
+
+  <div class="row">
+    <span class="label">Email</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="mailto:sbgfalcon@gmail.com">sbgfalcon@gmail.com</a>
+    </span>
+  </div>
+<br>
+  <div class="row">
+    <span class="label">Mobile</span>
+    <span class="colon">:</span>
+    <span class="value">
+      <a href="tel:+918897224021">88972 24021</a>
+    </span>
+  </div>
+<!--
+  <div class="row">
+    <span class="label">PAN</span>
+    <span class="colon">:</span>
+    <span class="value">AMXPG7678M</span>
+  </div> 
+
+  <div class="row">
+    <span class="label">Udyam Reg. No</span>
+    <span class="colon">:</span>
+    <span class="value">UDYAM-TS-02-0006729</span>
+  </div>
+
+  <div class="row">
+    <span class="label">GSTIN</span>
+    <span class="colon">:</span>
+    <span class="value">-</span>
+  </div> -->
+</div>
+  </div>
+  <div class="line" contenteditable>Proforma Invoice</div>
+  <div class="proforma-invoice header-row">
+  <div class="meta-box">Invoice No : <span id="invoiceNumber" contenteditable></span> </div>
+  <div class="meta-box">Date : <input type="date"></div>
+</div>
+
+
+  <div class="section-title">Customer information</div>
+
+  <div class="flex" style="gap:20px">
+    <div style="flex:1">
+      <div style="font-weight:bold;margin-top:10px">Current Address :</div>
+      <div class="addr-box" contenteditable><strong>SBG Falcon</strong><br>Flat No. F-202,Santhi Nilayam, Near MNR School of Excellence<br>Gudimalkapur Rd, Mehdipatnam, Hyderabad – 500020, Telangana.<br></div>
+    </div>
+    <div style="flex:1">
+      <div style="font-weight:bold;margin-top:10px">Billing Address :</div>
+      <div class="addr-box" contenteditable></div>
+    </div>
+  </div>
+
+  <label style="margin-top:10px;display:block"><input type="checkbox" id="addrSame"> Billing Address Same</label>
+
+  <table id="itemsTable">
+    <thead>
+      <tr>
+        <th style="width:5%">S.No.</th>
+        <th style="width:35%">Description</th>
+        <th style="width:10%">Qty</th>
+        <th style="width:10%">Rate</th>
+        <th style="width:15%">Amount</th>
+        <th style="width:8%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="center">1</td>
+        <td contenteditable>Item description</td>
+        <td><input type="number" class="qty" value="1" style="width:90%; text-align: right;"></td>
+        <td><input type="number" class="rate" value="0" style="width:90%; text-align: right;"></td>
+        <td class="amount" style="text-align:right;">0.00</td>
+        <td class="center"><button class="btn remove" onclick="removeRow(this)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="text-align:right;">
+  <button class="btn add" id="addRow">+ Add Item</button>
+  
+</div>
+  <table class="totals">
+    <tr><th>Subtotal</th><td id="subtotal">0.00</td></tr>
+    <tr><th>GST %</th><td><input type="number" id="taxPercent" value="0"></td></tr>
+    <tr><th>Total</th><td id="grandTotal">0.00</td></tr>
+  </table>
+  <!--
+<div style="display: inline-flex;">
+
+  <div style="margin-top:30px" id="declaration" class="declaration">
+    <div class="account-details" style="font-size:14px;">
+  <i><strong>Account Details</strong></i><br><br>
+
+  <div class="row">
+    <span class="label">Name</span>
+    <span class="colon">:</span>
+    <span class="value">Balasubrahmanyam Gummidi</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Account Number</span>
+    <span class="colon">:</span>
+    <span class="value">112001509875</span>
+  </div>
+
+  <div class="row">
+    <span class="label">IFSC Code</span>
+    <span class="colon">:</span>
+    <span class="value">ICIC0001120</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Branch</span>
+    <span class="colon">:</span>
+    <span class="value">Kavuri Hills</span>
+  </div>
+
+  <div class="row">
+    <span class="label">Bank</span>
+    <span class="colon">:</span>
+    <span class="value">ICICI Bank</span>
+  </div>
+</div><br>
+    <div style="font-weight:bold;font-size:14px;margin-top:20px">Declaration</div>
+
+    <div style="font-size:12px;margin-top:6px">* This invoice has been issued by a micro enterprise exempt from GST registration under Section 22 of the CGST Act. Therefore, GST is not applicable.</div>
+    <div style="font-size:12px;margin-top:6px">* 50% of the total order value is payable as an advance at the time of order confirmation. The balance amount is payable upon completion/delivery of the order.</div>
+    <div style="font-size:12px;margin-top:6px">* This invoice is system-generated.</div>
+  </div>
+<div id="signature-area" class="signature-area" style="margin-top:30px; text-align:center;">
+    
+    <label style="font-size:14px;">
+        <input type="checkbox" id="showSignature"> Authorized Signatory
+    </label>
+    
+    <div id="signatureBox" class="signature-box" style="display:none; margin-bottom:10px;">
+        <img src="assets/img/bp-stamp-blue.png" class="stamp" style="width:130px; opacity:0.9;">
+        <img src="assets/img/sign-blue.png" class="sign" style="width:120px; margin-top:-45px;">
+    </div>
+    <p style="margin:5px 0 0 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Balaraju&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    <div style="font-weight:bold">(SBG Falcon)</div>
+
+</div>
+</div> -->
+
+<div id="signature-area" class="signature-area" style="margin-top:30px; text-align:center;">
+    <!-- Authorized Signatory -->
+    <!--<label style="font-size:14px;">
+        <input type="checkbox" id="showSignature"> Authorized Signatory
+    </label> -->
+    <!-- Signature Images (hidden until checkbox is checked) -->
+    <div id="signatureBox" class="signature-box" style="display:none; margin-bottom:10px;">
+        <img src="assets/img/bp-stamp-blue.png" class="stamp" style="width:130px; opacity:0.9;">
+        <img src="assets/img/sign-blue.png" class="sign" style="width:120px; margin-top:-45px;">
+    </div>
+    <p style="margin:5px 0 0 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Balaraju&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    <div style="font-weight:bold">(SBG Falcon)</div>
+
+</div>
+<!--
+<div class="qr-only">
+
+  <div class="qr-item">
+    <img src="assets/img/more/contact-details.jpg" alt="Contact Details QR Code">
+    <div class="qr-text">Contact Details</div>
+  </div>
+
+  <div class="qr-item">
+    <img src="assets/img/more/phone-pe.jpg" alt="PhonePe QR Code">
+    <div class="qr-text">Phone Pe</div>
+  </div>
+
+  <div class="qr-item">
+    <img src="assets/img/more/google-pay.jpg" alt="Google Pay QR Code">
+    <div class="qr-text">Google Pay</div>
+  </div>
+
+  <div class="qr-item">
+    <img src="assets/img/more/paytm.jpg" alt="PayTM QR Code">
+    <div class="qr-text">Paytm</div>
+  </div>
+
+</div> -->
+<div style="text-align:center; margin-top: 50px;">
+ 
+  <button class="btn print" onclick="window.print()">Print</button>
+</div>
+</div>
+
+<script>
+function fmt(v){return Number(v||0).toFixed(2)}
+
+function recalc(){
+  const rows=document.querySelectorAll('#itemsTable tbody tr');
+  let subtotal=0;
+  rows.forEach((r,i)=>{
+    const q=Number(r.querySelector('.qty').value||0);
+    const rt=Number(r.querySelector('.rate').value||0);
+    const amt=q*rt;
+    r.querySelector('.amount').textContent=fmt(amt);
+    subtotal+=amt;
+    r.querySelector('td').textContent=i+1;
+  });
+  document.getElementById('subtotal').textContent=fmt(subtotal);
+  const tax=Number(document.getElementById('taxPercent').value||0);
+  document.getElementById('grandTotal').textContent=fmt(subtotal+(subtotal*(tax/100)));
+}
+
+/* -------------------------------
+   ADD ITEM ROW (fixed)
+--------------------------------*/
+document.getElementById('addRow').onclick=()=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="center">0</td>
+    <td contenteditable>New item</td>
+    <td><input type="number" class="qty" value="1" style="width:90%; text-align: right;"></td>
+    <td><input type="number" class="rate" value="0" style="width:90%; text-align: right;"></td>
+    <td class="amount" style="text-align:right;">0.00</td>
+    <td class="center"><button class="btn remove" onclick="removeRow(this)">X</button></td>`;
+
+  document.querySelector('#itemsTable tbody').appendChild(tr);
+
+  tr.querySelectorAll('input').forEach(inp=>inp.oninput=recalc);
+  recalc();
+};
+
+/* -------------------------------
+   REMOVE ROW
+--------------------------------*/
+function removeRow(btn){
+  const tr=btn.closest('tr');
+  const body=document.querySelector('#itemsTable tbody');
+  if(body.children.length>1) tr.remove();
+  else{
+    tr.querySelector('[contenteditable]').textContent='Item description';
+    tr.querySelector('.qty').value=1;
+    tr.querySelector('.rate').value=0;
+  }
+  recalc();
+}
+
+/* -------------------------------
+   AUTO FILL BILLING ADDRESS
+--------------------------------*/
+const currentAddr=document.querySelectorAll('.addr-box')[0];
+const billingAddr=document.querySelectorAll('.addr-box')[1];
+const addrSame=document.getElementById('addrSame');
+
+if(addrSame){
+  addrSame.onchange=()=>{
+    if(addrSame.checked){
+      billingAddr.innerHTML=currentAddr.innerHTML;
+      billingAddr.setAttribute('contenteditable','false');
+    } else {
+      billingAddr.innerHTML="";
+      billingAddr.setAttribute('contenteditable','true');
+    }
+  };
+}
+
+/* -------------------------------
+   INITIAL CALC
+--------------------------------*/
+document.querySelectorAll('.qty,.rate').forEach(inp=>inp.oninput=recalc);
+document.getElementById('taxPercent').oninput=recalc;
+recalc();
+
+document.getElementById('showSignature').onchange = () => {
+    document.getElementById('signatureBox').style.display =
+        document.getElementById('showSignature').checked ? "block" : "none";
+};
+
+</script>
+
+<script>
+  function generateInvoiceNumber(sequence = 1) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const seq = String(sequence).padStart(4, "0"); // 0001, 0002, 0003...
+
+    return `SBG/${year}/${month}/${seq}`;
+  }
+
+  // Set invoice number on page load
+  document.getElementById("invoiceNumber").textContent = generateInvoiceNumber(1);
+</script>
+
+</body>
+</html>
