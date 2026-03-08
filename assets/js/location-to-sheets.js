@@ -7,7 +7,7 @@ const statusEl = document.getElementById('status');
 sendBtn && sendBtn.addEventListener('click', () => sendLocation());
 
 async function sendLocation(){
-  if(!navigator.geolocation){ statusEl.textContent = 'Geolocation not supported by this browser.'; return; }
+  if(!navigator.geolocation){ statusEl.textContent = 'Not supported by this browser.'; return; }
   statusEl.textContent = 'Hello...Customers! Please wait...';
   navigator.geolocation.getCurrentPosition(async (pos) => {
     const payload = {
@@ -36,7 +36,7 @@ async function sendLocation(){
         timedOut = true;
         window[cbName] = null;
         if (script.parentNode) script.parentNode.removeChild(script);
-        statusEl.textContent = 'Network timeout while sending location.';
+        statusEl.textContent = 'Click Button Again.';
       }, 15000);
 
       window[cbName] = function(data) {
