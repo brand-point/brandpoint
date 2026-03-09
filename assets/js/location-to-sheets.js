@@ -40,10 +40,7 @@ async function sendLocation(){
   function buildPayloadFromPosition(pos){
     return {
       lat: pos.coords.latitude,
-      lon: pos.coords.longitude,
-      accuracy: pos.coords.accuracy,
-      timestamp: new Date(pos.timestamp).toISOString(),
-      userAgent: navigator.userAgent
+      lon: pos.coords.longitude
     };
   }
 
@@ -54,9 +51,6 @@ async function sendLocation(){
       const params = new URLSearchParams();
       params.set('lat', payload.lat);
       params.set('lon', payload.lon);
-      params.set('accuracy', payload.accuracy);
-      params.set('timestamp', payload.timestamp);
-      params.set('userAgent', encodeURIComponent(payload.userAgent));
 
       const cbName = '__gps_cb_' + Date.now() + '_' + Math.floor(Math.random()*1000);
       params.set('callback', cbName);
@@ -175,10 +169,7 @@ async function sendLocation(){
         if (data && data.latitude && data.longitude) {
           const payload = {
             lat: data.latitude,
-            lon: data.longitude,
-            accuracy: data.city ? 50000 : 100000,
-            timestamp: new Date().toISOString(),
-            userAgent: navigator.userAgent + ' (ip-fallback)'
+            lon: data.longitude
           };
           sendPayload(payload);
           return;
