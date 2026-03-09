@@ -30,6 +30,39 @@ function getPositionWithTimeout(options = {}, ms = 60000) {
   });
 }
 
+// Try to get a fast position by racing watchPosition (may return cached/coarse quickly)
+// with getCurrentPosition. Resolves with the first successful position.
+function getFastPosition(options = {}, ms = 5000) {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) return reject(new Error('Not supported'));
+    let finished = false;
+
+    const onDone = (fn) => (val) => {
+      if (finished) return;
+      finished = true;
+      try { if (watchId != null) navigator.geolocation.clearWatch(watchId); } catch(e) {}
+      fn(val);
+    };
+
+    // Start watchPosition to get a quick update (often faster on mobile)
+    let watchId = null;
+    try {
+      watchId = navigator.geolocation.watchPosition((pos) => {
+        onDone(resolve)(pos);
+      }, (err) => {
+        // If permission denied, propagate immediately
+        if (err && err.code === 1) onDone(reject)(err);
+        // otherwise ignore and let getCurrentPosition attempt
+      }, options);
+    } catch(e) {
+      // ignore and rely on getCurrentPosition
+    }
+
+    // Also try getCurrentPosition with our timeout
+    getPositionWithTimeout(options, ms).then(onDone(resolve)).catch(onDone(reject));
+  });
+}
+
 async function sendLocation(){
   if(!navigator.geolocation){ statusEl.textContent = 'Not supported by this browser.'; return; }
   if (sendBtn) sendBtn.disabled = true;
@@ -93,7 +126,7 @@ async function sendLocation(){
     try{
       // Try a very fast cached read first (may return immediately on mobile)
       try {
-        const quick = await getPositionWithTimeout({ enableHighAccuracy: false, maximumAge: 300000 }, 3000);
+        const quick = await getFastPosition({ enableHighAccuracy: false, maximumAge: 300000 }, 3000);
         const payload = buildPayloadFromPosition(quick);
         sendPayload(payload);
         return;
@@ -141,7 +174,7 @@ async function sendLocation(){
   try{
     // Try quick cached read first to speed up mobile response
     try {
-      const quick = await getPositionWithTimeout({ enableHighAccuracy: false, maximumAge: 300000 }, 3000);
+      const quick = await getFastPosition({ enableHighAccuracy: false, maximumAge: 300000 }, 3000);
       const payload = buildPayloadFromPosition(quick);
       sendPayload(payload);
       return;
