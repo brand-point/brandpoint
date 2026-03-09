@@ -101,7 +101,7 @@ async function sendLocation(){
         clearTimeout(timeout);
         try{
           if (data && data.status === 'ok') {
-            statusEl.innerHTML = '<img src="assets/img/kfc-coupons.jpg" alt="Saved" style="max-width:100%;display:block;" />';
+            statusEl.innerHTML = '......';
           } else {
             statusEl.textContent = 'Server error: ' + (data && data.message ? data.message : 'unknown');
           }
